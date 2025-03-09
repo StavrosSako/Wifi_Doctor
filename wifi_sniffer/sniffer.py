@@ -1,14 +1,66 @@
 import subprocess
 import os
+import platform
+import time
+
+def enable_monitor_mode(interface): 
+    system = platform.system()
+    
+    if system == "Darwin":
+        print(f"[*] Putting {interface} into monitor mode on macOS..")
+        try:
+            #using airport to sniff on a specifing channel
+            subprocess.run(["sudo", "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport",
+                          interface, "sniff", "1"], check=True)
+            print(f"[+] {interface} is now on monitor mode.")
+            return True
+        except subprocess.CalledProcessError as e: 
+            print(f"[-] Failled to enable monitor mode on macOS: {e}")
+            return False
+
+    elif system == "Linux":
+        print(f"[*] Putting {interface} into monitor mode on Linux..")
+        try:
+            # Use airmon-ng to enable monitor mode
+            subprocess.run(["sudo", "airmon-ng", "start", interface], check=True)
+            print(f"[+] {interface} is now in monitor mode.")
+            return True
+        except subprocess.CalledProcessError as e:
+            print(f"[-] Failed to enable monitor mode on Linux: {e}")
+            return False
+
+    else:
+        print(f"[-] Unsupported operating system: {system}")
+        return False
+
+def disable_monitor_mode(interface):
+    """
+    Disable monitor mode and restore the Wi-Fi interface to its original state.
+    Supports macOS and Linux.
+    """
+    system = platform.system()
+
+    if system == "Darwin":  # macOS
+        print(f"[*] Restoring {interface} to managed mode on macOS...")
+        try:
+            # Stop the sniffing process
+            subprocess.run(["sudo", "pkill", "airport"], check=True)
+            print(f"[+] {interface} is now back in managed mode.")
+        except subprocess.CalledProcessError as e:
+            print(f"[-] Failed to disable monitor mode on macOS: {e}")
+
+    elif system == "Linux":  # Linux
+        print(f"[*] Restoring {interface} to managed mode on Linux...")
+        try:
+            # Use airmon-ng to disable monitor mode
+            subprocess.run(["sudo", "airmon-ng", "stop", interface], check=True)
+            print(f"[+] {interface} is now back in managed mode.")
+        except subprocess.CalledProcessError as e:
+            print(f"[-] Failed to disable monitor mode on Linux: {e}")
 
 def capture_packets(interface, output_file, packet_count=1000):
     """
     Capture Wi-Fi packets using tshark and save them to a .pcap file.
-
-    Args:
-        interface (str): The Wi-Fi interface to capture packets from.
-        output_file (str): The name of the output .pcap file.
-        packet_count (int): The number of packets to capture.
     """
     try:
         # Ensure the output directory exists
@@ -18,25 +70,32 @@ def capture_packets(interface, output_file, packet_count=1000):
         command = [
             "tshark",
             "-i", interface,  # Wi-Fi interface
-            "-f", "type mgt subtype beacon",  # Capture only beacon frames
             "-w", output_file,  # Output .pcap file
             "-c", str(packet_count)  # Number of packets to capture
         ]
 
         # Run the command
-        print(f"Capturing {packet_count} packets on interface {interface}...")
+        print(f"[*] Capturing {packet_count} packets on interface {interface}...")
         subprocess.run(command, check=True)
-        print(f"Capture complete. Saved to {output_file}")
+        print(f"[+] Capture complete. Saved to {output_file}")
 
     except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
+        print(f"[-] Error: {e}")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"[-] An error occurred: {e}")
 
 if __name__ == "__main__":
-    interface = "en0"
+    # Replace 'en0' (macOS) or 'wlan0' (Linux) with your Wi-Fi interface name
+    interface = "en0" if platform.system() == "Darwin" else "wlan0"
     output_file = "../data/home_network_2.4GHz.pcap"  # Save to the data folder
     packet_count = 1000  # Number of packets to capture
 
-    # Start capturing packets
-    capture_packets(interface, output_file, packet_count)
+    # Enable monitor mode
+    if enable_monitor_mode(interface):
+        # Capture packets
+        capture_packets(interface, output_file, packet_count)
+
+        # Disable monitor mode
+        disable_monitor_mode(interface)
+    else:
+        print("[-] Monitor mode could not be enabled. Exiting.")
