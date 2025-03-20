@@ -64,7 +64,7 @@ def parse_pcap_file(pcap_path, packet_limit=200):
 
 if __name__ == '__main__':
     pcap_file = 'HowIWiFi_PCAP.pcap'
-    parsed_packets = parse_pcap_file(pcap_file, packet_limit=200)
+    parsed_packets = parse_pcap_file(pcap_file, packet_limit=200) 
 
     print(f"\nWe found {len(parsed_packets)} packets.\n")
     for i, pkt in enumerate(parsed_packets):  
