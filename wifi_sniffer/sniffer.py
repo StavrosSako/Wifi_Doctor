@@ -4,7 +4,7 @@ import platform
 import time
 
 def enable_monitor_mode(interface): 
-    system = platform.system()
+    system = platform.system() 
     
     if system == "Darwin":
         print(f"[*] Putting {interface} into monitor mode on macOS..")
@@ -96,6 +96,7 @@ if __name__ == "__main__":
         capture_packets(interface, output_file, packet_count)
 
         # Disable monitor mode
+        #testing
         disable_monitor_mode(interface)
     else:
         print("[-] Monitor mode could not be enabled. Exiting.")
