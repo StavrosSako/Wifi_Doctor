@@ -59,11 +59,11 @@ def save_to_csv(data, output_file):
             
 
 if __name__ == '__main__':
-    pcap_path = '/Users/user/Desktop/σχολη/8o εξάμηνο/Δίκτυα 2/Project1/Wifi_Doctor/data/HowIWiFi_PCAP.pcap'
+    pcap_path = '../data/HowIWiFi_PCAP.pcap'
     parsed_packets = parse_pcap_file(pcap_path, packet_limit=151)
     print(f"\nWe found {len(parsed_packets)} packets.\n")
     for i, pkt in enumerate(parsed_packets):
         print(f"Packet {i+1}:")
     
-    output_file = '/Users/user/Desktop/σχολη/8o εξάμηνο/Δίκτυα 2/Project1/Wifi_Doctor/results/parsed_packets.csv'
+    output_file = '..results/parsed_packets.csv'
     save_to_csv(parsed_packets, output_file)    
