@@ -59,25 +59,7 @@ def parse_pcap_file(pcap_path, packet_limit=200):
                     if match:
                         packet_info["Data rate"] = match.group(1) + " Mbps"
 
-                # Track all antenna signals with their line numbers
-                if "antenna signal" in lower:
-                    match = re.search(r'antenna signal:\s*(-?\d+)\s*dBm', line)
-                    if match:
-                        signal_map[i] = int(match.group(1))
-
-                # Match antenna index with previous antenna signal
-                if "antenna: 0" in lower:
-                    # Find the nearest preceding antenna signal
-                    nearest_signal = next((signal_map[j] for j in reversed(range(i)) if j in signal_map), None)
-                    if nearest_signal is not None:
-                        antenna_signals[0] = nearest_signal
-
-                if "antenna: 1" in lower:
-                    nearest_signal = next((signal_map[j] for j in reversed(range(i)) if j in signal_map), None)
-                    if nearest_signal is not None:
-                        antenna_signals[1] = nearest_signal
-
-                        #Calculate SNR if signal strength is available
+           #Calculate SNR if signal strength is available
             signal_dbm = None
             if packet_info["Signal strength"] != "N/A":
                 match = re.search(r'(-?\d+)\s*dBm', packet_info["Signal strength"])
