@@ -1,0 +1,56 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+
+# Load parsed packet data
+input_file = '../results_parser/HowIWiFi_PCAP_parsed_packets.csv'
+df = pd.read_csv(input_file)
+
+# Normalize and clean fields
+df['PHY type'] = df['PHY type'].str.extract(r'PHY type:\s*([^\(]+)', expand=False).str.strip()
+df['Signal/noise ratio'] = pd.to_numeric(df['Signal/noise ratio'].str.replace(" dB", ""), errors='coerce')
+df['Data rate'] = pd.to_numeric(df['Data rate'].str.replace(" Mbps", ""), errors='coerce')
+
+# Drop rows with missing key values
+df_clean = df.dropna(subset=['PHY type', 'Signal/noise ratio', 'Data rate'])
+
+# Group and summarize
+summary = df_clean.groupby('PHY type').agg({
+    'Signal/noise ratio': 'mean',
+    'Data rate': 'mean',
+    'PHY type': 'count'
+}).rename(columns={
+    'PHY type': 'Packet Count',
+    'Signal/noise ratio': 'Avg SNR (dB)',
+    'Data rate': 'Avg Data Rate (Mbps)'
+}).reset_index()
+
+# Save the summary table
+output_csv = '../monitor_results/phy_type_performance_summary.csv'
+os.makedirs(os.path.dirname(output_csv), exist_ok=True)
+summary.to_csv(output_csv, index=False)
+print(f"Summary table saved to: {output_csv}")
+
+# Plot Avg SNR per PHY type
+plt.figure(figsize=(12, 6))
+sns.set_style("whitegrid")
+steel_blue = sns.color_palette("Blues", n_colors=4)[2:]
+
+ax = sns.barplot(x='PHY type', y='Avg SNR (dB)', data=summary, palette=steel_blue)
+
+# Add value labels on bars
+for index, row in summary.iterrows():
+    ax.text(index, row['Avg SNR (dB)'] + 1, f"{row['Avg SNR (dB)']:.1f}", ha='center', fontsize=10)
+
+# Styling
+plt.title('Average SNR by PHY Type', fontsize=14, weight='bold')
+plt.xlabel('PHY Type', fontsize=12)
+plt.ylabel('Avg SNR (dB)', fontsize=12)
+plt.tight_layout()
+
+# Save the plot
+output_plot = '../monitor_results/phy_type_snr_barplot.png'
+plt.savefig(output_plot, bbox_inches='tight')
+plt.close()
+print(f"SNR bar plot saved to: {output_plot}")

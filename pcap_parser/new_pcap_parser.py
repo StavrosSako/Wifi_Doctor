@@ -33,46 +33,48 @@ def parse_pcap_file(pcap_path, packet_limit=200):
             packet_str = ansi_escape.sub('', str(packet))
             lines = packet_str.split('\n')
 
-            # Store all antenna signal values with line indices
-            signal_map = {}
-            antenna_signals = {}
-
             for i, line in enumerate(lines):
                 lower = line.lower()
 
-                # Extract fields normally
+                # Extract general fields
                 for key, field_name in field_mapping.items():
-                    if key in lower:
+                    if key in lower and field_name not in ['Frequency', 'Data rate', 'Bandwidth']:
                         parts = re.split(r':\s*', line, maxsplit=1)
                         if len(parts) > 1:
                             packet_info[field_name] = parts[1].strip()
 
-                # Frequency
+                # Frequency (in MHz)
                 if "frequency" in lower or "mhz" in lower:
                     match = re.search(r'(\d{4})MHz', line)
                     if match:
                         packet_info["Frequency"] = match.group(1)
 
-                # Data Rate
+                # Data Rate (in Mbps)
                 if "data rate" in lower:
-                    match = re.search(r'(\d+\.?\d*) Mb/s', line)
+                    match = re.search(r'(\d+\.?\d*)\s*Mb/s', line)
                     if match:
                         packet_info["Data rate"] = match.group(1) + " Mbps"
 
-           #Calculate SNR if signal strength is available
+                # Bandwidth from IEEE 802.11 Radio Info
+                if "bandwidth:" in lower and "mhz" in lower:
+                    match = re.search(r'bandwidth:\s*(\d+)\s*MHz', line)
+                    if match:
+                        packet_info["Bandwidth"] = f"{match.group(1)} MHz"
+
+
+            # Calculate SNR using signal strength (if present)
             signal_dbm = None
             if packet_info["Signal strength"] != "N/A":
                 match = re.search(r'(-?\d+)\s*dBm', packet_info["Signal strength"])
                 if match:
-                        signal_dbm = int(match.group(1))
-                        assumed_noise = -95  # Assumed noise floor for 2.4 GHz
-                        snr = signal_dbm - assumed_noise
-                        packet_info["Signal/noise ratio"] = f"{snr} dB"
+                    signal_dbm = int(match.group(1))
+                    assumed_noise = -95
+                    snr = signal_dbm - assumed_noise
+                    packet_info["Signal/noise ratio"] = f"{snr} dB"
                 else:
                     packet_info["Signal/noise ratio"] = "N/A"
             else:
                 packet_info["Signal/noise ratio"] = "N/A"
-
 
             results.append(packet_info)
 
@@ -96,7 +98,7 @@ def save_to_csv(parsed_packets, output_file):
 
 
 if __name__ == '__main__':
-    pcap_path = '../data/HowIWiFi_PCAP.pcap'
+    pcap_path = '../data/home_Network5G.pcap'
     pcap_name = os.path.basename(pcap_path).replace('.pcap', '')
     parsed_packets = parse_pcap_file(pcap_path, packet_limit=151)
     print(f"\nFound {len(parsed_packets)} packets.\n")

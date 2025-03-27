@@ -12,7 +12,7 @@ def parse_pcap_file(pcap_path, packet_limit=200):
             break
         packet_count += 1
         pkt_info = {}
-        packet_str = str(p)
+        packet_str = str(packets)
         packet_str = ansi_escape.sub('', packet_str)
 
         for line in packet_str.split('\n'):
@@ -118,7 +118,7 @@ def parse_pcap_file(pcap_path, packet_limit=200):
     return results
 
 if __name__ == '__main__':
-    pcap_file = 'HowIWiFi_PCAP.pcap'
+    pcap_file = '/Users/user/Desktop/σχολη/8o εξάμηνο/Δίκτυα 2/Project1/Wifi_Doctor/data/HowIWiFi_PCAP.pcap'
     parsed_packets = parse_pcap_file(pcap_file, packet_limit=151)
     print(f"\nWe found {len(parsed_packets)} packets.\n")
     for i, pkt in enumerate(parsed_packets):

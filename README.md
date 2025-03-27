@@ -15,4 +15,4 @@ A Wi-Fi network performance monitoring system designed to diagnose performance b
 1. Clone the repository.
 2. Install the required libraries:
    ```bash
-   pip install pyshark pandas matplotlib seaborn
+   pip install pyshark pandas matplotlib seaborn wireshark
