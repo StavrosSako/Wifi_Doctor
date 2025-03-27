@@ -77,7 +77,7 @@ def parse_pcap_file(pcap_path, packet_limit=200):
                     if nearest_signal is not None:
                         antenna_signals[1] = nearest_signal
 
-                        # ➕ Calculate SNR if signal strength is available
+                        #Calculate SNR if signal strength is available
             signal_dbm = None
             if packet_info["Signal strength"] != "N/A":
                 match = re.search(r'(-?\d+)\s*dBm', packet_info["Signal strength"])
