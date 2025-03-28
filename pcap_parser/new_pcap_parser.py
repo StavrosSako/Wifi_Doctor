@@ -13,12 +13,14 @@ def parse_pcap_file(pcap_path, packet_limit=200):
         'phy type': 'PHY type',
         'mcs index': 'MCS Index',
         'bandwidth': 'Bandwidth',
+        'channel width': 'Bandwidth',
         'short gi': 'Short GI',
         'data rate': 'Data rate',
         'channel': 'Channel',
         'frequency': 'Frequency',
         'signal strength': 'Signal strength',
         'signal/noise ratio': 'Signal/noise ratio',
+        'retry': 'Retry',
         'timestamp': 'TSF Timestamp'
     }
 
@@ -57,9 +59,19 @@ def parse_pcap_file(pcap_path, packet_limit=200):
 
                 # Bandwidth from IEEE 802.11 Radio Info
                 if "bandwidth:" in lower and "mhz" in lower:
-                    match = re.search(r'bandwidth:\s*(\d+)\s*MHz', line)
+                    match = re.search(r'bandwidth:\s*(\d+)\s*MHz', line, re.IGNORECASE)
                     if match:
                         packet_info["Bandwidth"] = f"{match.group(1)} MHz"
+                elif "channel width:" in lower and "mhz" in lower:
+                    match = re.search(r'channel width:\s*(\d+)\s*MHz', line, re.IGNORECASE)
+                    if match:
+                        packet_info["Bandwidth"] = f"{match.group(1)} MHz"
+                #Retry.
+                if "Retry: Set" in packet_str or "Retry: 1" in packet_str:
+                    packet_info["Retry"] = 1
+                else:
+                    packet_info["Retry"] = 0   
+
 
 
             # Calculate SNR using signal strength (if present)

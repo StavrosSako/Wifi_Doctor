@@ -1,152 +1,152 @@
-BSS Id,Receiver address,Type/Subtype,PHY type,MCS Index,Short GI,Data rate,Channel,Frequency,Signal strength,Signal/noise ratio,TSF Timestamp,Bandwidth
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,430796848,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,430899287,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,431001664,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,431104099,N/A
-2c:f8:9b:dd:06:a0,00:0e:58:12:31:16,Type/Subtype: Probe Response (0x0005),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-36 dBm,59 dB,431147781,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,431206486,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,431308903,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,431411248,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,431513682,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,431616099,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,431718453,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,431820848,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,431923274,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,432025674,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,432128048,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,432230470,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,432332848,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,432439288,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,432541274,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,432640048,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,432742464,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,432844874,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,432947248,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,433049683,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,433152063,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,433254499,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,433356898,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,433459266,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,433561682,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,433664048,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,433766448,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,433868882,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,433971268,N/A
-2c:f8:9b:dd:06:a0,00:0e:58:12:31:16,Type/Subtype: Probe Response (0x0005),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-36 dBm,59 dB,434060644,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,434073648,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,434176108,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,434278493,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,434380888,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,434483256,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,434585676,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,434688092,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,434790467,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,434892909,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,434995255,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,435097679,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,435200758,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,435404859,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,435507296,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,435609706,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,435712373,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,435814505,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,435916889,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,436019309,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,436121669,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,436224108,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,436326500,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,436428898,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,436531285,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,436633709,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,436736074,N/A
-2c:f8:9b:dd:06:a0,01:00:5e:7f:ff:fa,Type/Subtype: Data (0x0020),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,436838507,N/A
-2c:f8:9b:dd:06:a0,33:33:00:00:01:8c,Type/Subtype: Data (0x0020),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,436940890,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,437043257,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,437145685,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,437248081,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,437350507,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,437452905,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,437555261,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,437657674,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,437760070,N/A
-2c:f8:9b:dd:06:a0,f8:e4:e3:67:9c:ba,Type/Subtype: Probe Response (0x0005),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-36 dBm,59 dB,437854912,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,437862679,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,437965038,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,438067264,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,438169652,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,438272102,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,438374448,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,438477092,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,438579284,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,438681656,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,438784082,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,438886448,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,438988896,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,439091275,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,439193667,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,439296097,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,439398506,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: Authentication (0x000b),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Authentication (0x000b),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: Association Request (0x0000),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,False,2412,-24 dBm,71 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Association Response (0x0001),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,0,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Association Response (0x0001),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,0,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Association Response (0x0001),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,0,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,False,130.0 Mbps,1,2412,-34 dBm,61 dB,Absent,20 MHz
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Data (0x0020),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,False,130.0 Mbps,1,2412,-26 dBm,69 dB,Absent,20 MHz
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,439500881,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,False,130.0 Mbps,1,2412,-28 dBm,67 dB,Absent,20 MHz
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,False,130.0 Mbps,1,2412,-32 dBm,63 dB,Absent,20 MHz
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,Absent,N/A
-2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,False,130.0 Mbps,1,2412,-26 dBm,69 dB,Absent,20 MHz
+BSS Id,Receiver address,Type/Subtype,PHY type,MCS Index,Bandwidth,Short GI,Data rate,Channel,Frequency,Signal strength,Signal/noise ratio,Retry,TSF Timestamp
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,430796848
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,430899287
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,431001664
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,431104099
+2c:f8:9b:dd:06:a0,00:0e:58:12:31:16,Type/Subtype: Probe Response (0x0005),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-36 dBm,59 dB,0,431147781
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,431206486
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,431308903
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,431411248
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,431513682
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,431616099
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,431718453
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,431820848
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,431923274
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,432025674
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,432128048
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,432230470
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,432332848
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,432439288
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,432541274
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,432640048
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,432742464
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,432844874
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,432947248
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,433049683
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,433152063
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,433254499
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,433356898
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,433459266
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,433561682
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,433664048
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,433766448
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,433868882
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,433971268
+2c:f8:9b:dd:06:a0,00:0e:58:12:31:16,Type/Subtype: Probe Response (0x0005),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-36 dBm,59 dB,0,434060644
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,434073648
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,434176108
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,434278493
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,434380888
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,434483256
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,434585676
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,434688092
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,434790467
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,434892909
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,434995255
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,435097679
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,435200758
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,435404859
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,435507296
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,435609706
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,435712373
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,435814505
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,435916889
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,436019309
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,436121669
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+ff:ff:ff:ff:ff:ff,ff:ff:ff:ff:ff:ff,Type/Subtype: Probe Request (0x0004),PHY type: 802.11b (HR/DSSS) (4),N/A,N/A,Not supported,1.0 Mbps,False,2412,0 dBm,95 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,436224108
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,436326500
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,436428898
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,436531285
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,436633709
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,436736074
+2c:f8:9b:dd:06:a0,01:00:5e:7f:ff:fa,Type/Subtype: Data (0x0020),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,436838507
+2c:f8:9b:dd:06:a0,33:33:00:00:01:8c,Type/Subtype: Data (0x0020),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,436940890
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,437043257
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,437145685
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,437248081
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,437350507
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,437452905
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,437555261
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,437657674
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,437760070
+2c:f8:9b:dd:06:a0,f8:e4:e3:67:9c:ba,Type/Subtype: Probe Response (0x0005),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-36 dBm,59 dB,0,437854912
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,437862679
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,437965038
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,438067264
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,438169652
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,438272102
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,438374448
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,438477092
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,438579284
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,438681656
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-34 dBm,61 dB,0,438784082
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,438886448
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,438988896
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,439091275
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,439193667
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,439296097
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,439398506
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: Authentication (0x000b),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Authentication (0x000b),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: Association Request (0x0000),PHY type: 802.11g (ERP) (6),N/A,N/A,Not supported,9.0 Mbps,False,2412,-24 dBm,71 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Association Response (0x0001),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,0,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Association Response (0x0001),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,0,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: Association Response (0x0001),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,0,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,20 MHz,False,130.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-24 dBm,71 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Data (0x0020),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,20 MHz,False,130.0 Mbps,1,2412,-26 dBm,69 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,ff:ff:ff:ff:ff:ff,Type/Subtype: Beacon frame (0x0008),PHY type: 802.11g (ERP) (6),N/A,20 MHz,Not supported,9.0 Mbps,DS Parameter set: Current Channel: 1,2412,-32 dBm,63 dB,0,439500881
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,20 MHz,False,130.0 Mbps,1,2412,-28 dBm,67 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,00:20:a6:fc:b0:36,Type/Subtype: Request-to-send (0x001b),PHY type: 802.11g (ERP) (6),N/A,N/A,False,9.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Clear-to-send (0x001c),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-34 dBm,61 dB,0,Absent
+2c:f8:9b:dd:06:a0,00:20:a6:fc:b0:36,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,20 MHz,False,130.0 Mbps,1,2412,-32 dBm,63 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+N/A,2c:f8:9b:dd:06:a0,Type/Subtype: Acknowledgement (0x001d),PHY type: 802.11g (ERP) (6),N/A,N/A,False,6.0 Mbps,1,2412,-36 dBm,59 dB,0,Absent
+2c:f8:9b:dd:06:a0,2c:f8:9b:dd:06:a0,Type/Subtype: QoS Data (0x0028),PHY type: 802.11n (HT) (7),15,20 MHz,False,130.0 Mbps,1,2412,-26 dBm,69 dB,0,Absent
