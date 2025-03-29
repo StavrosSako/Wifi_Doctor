@@ -3,7 +3,7 @@ import re
 import csv
 import os
 
-def parse_pcap_file(pcap_path, packet_limit=200):
+def parse_pcap_file(pcap_path, packet_limit=500):
     ansi_escape = re.compile(r'\x1b\[[0-9;]*m')
 
     field_mapping = {
@@ -110,9 +110,9 @@ def save_to_csv(parsed_packets, output_file):
 
 
 if __name__ == '__main__':
-    pcap_path = '../data/home_Network5G.pcap'
+    pcap_path = '../data/home.pcap'
     pcap_name = os.path.basename(pcap_path).replace('.pcap', '')
-    parsed_packets = parse_pcap_file(pcap_path, packet_limit=151)
+    parsed_packets = parse_pcap_file(pcap_path, packet_limit=12000)
     print(f"\nFound {len(parsed_packets)} packets.\n")
 
     output_file = f'../results_parser/{pcap_name}_parsed_packets.csv'

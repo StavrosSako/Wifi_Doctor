@@ -1,0 +1,5 @@
+Client,Frames,Retries,Retry Rate (%),Avg Data Rate (Mbps),Estimated Throughput (Mbps),Observed Throughput (Mbps),Min TP (Mbps),25P TP (Mbps),Median TP (Mbps),75P TP (Mbps),95P TP (Mbps),Max TP (Mbps),Rate Gap (Mbps),Signal Strength (dBm),MCS Index,PHY Type,Bandwidth,Short GI,Diagnosis
+0c:67:14:92:8c:44,1260,0,0.0,854.59,854.586,1.08,0.084,0.255,1.014,1.728,2.347,3.072,853.506,-54.8,-1,PHY type: 802.11ax (HE) (11),80 MHz,False,Rate gap → possible interference
+be:19:e4:1c:ae:a6,129,0,0.0,1187.86,1187.863,0.129,0.012,0.057,0.102,0.183,0.291,0.324,1187.734,-49.4,-1,PHY type: 802.11ax (HE) (11),N/A,False,Rate gap → possible interference
+c0:d7:aa:32:21:a4,218,0,0.0,839.24,839.239,0.436,0.012,0.033,0.102,0.207,1.671,2.148,838.803,-47.6,-1,PHY type: 802.11ax (HE) (11),80 MHz,False,Rate gap → possible interference
+82:f8:6a:22:08:9f,326,0,0.0,1099.55,1099.553,0.356,0.012,0.216,0.288,0.498,0.726,0.804,1099.197,-48.4,-1,PHY type: 802.11ax (HE) (11),N/A,False,Rate gap → possible interference

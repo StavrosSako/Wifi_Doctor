@@ -1,2 +1,2 @@
-Frequency (MHz),Unique BSSIDs,Avg Signal Strength (dBm),Avg SNR (dB)
-5180,8,-79.125,15.875
+Frequency (MHz),Unique BSSIDs,Avg Signal Strength (dBm),Signal Strength Std (dBm),Avg SNR (dB),SNR Std (dB),Band,Density %
+5180,6,-77.20331950207469,14.332087860051928,17.796680497925312,14.332087860051928,5 GHz,100.0

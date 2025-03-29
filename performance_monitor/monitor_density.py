@@ -17,39 +17,49 @@ def analyze_wifi_density(csv_path, output_dir="../outputs/density_results/"):
 
     # Normalize values
     beacons['Frequency (MHz)'] = pd.to_numeric(
-        beacons['Frequency'].astype(str).str.extract(r'(\d+)')[0],
-        errors='coerce'
+        beacons['Frequency'].astype(str).str.extract(r'(\d+)')[0], errors='coerce'
     )
     beacons['Signal strength (dBm)'] = pd.to_numeric(
-        beacons['Signal strength'].str.extract(r'(-?\d+)')[0],
-        errors='coerce'
+        beacons['Signal strength'].str.extract(r'(-?\d+)')[0], errors='coerce'
     )
     beacons['Signal/Noise Ratio (dB)'] = pd.to_numeric(
-        beacons['Signal/noise ratio'].astype(str).str.extract(r'(\d+)')[0],
-        errors='coerce'
+        beacons['Signal/noise ratio'].astype(str).str.extract(r'(\d+)')[0], errors='coerce'
     )
     beacons.dropna(subset=['Frequency (MHz)'], inplace=True)
 
-    # ========== Summary Table ==========
+    # ========== Enriched Summary Table ==========
     summary = (
         beacons.groupby('Frequency (MHz)').agg({
             'BSS Id': pd.Series.nunique,
-            'Signal strength (dBm)': 'mean',
-            'Signal/Noise Ratio (dB)': 'mean'
-        }).reset_index()
-        .rename(columns={
-            'BSS Id': 'Unique BSSIDs',
-            'Signal strength (dBm)': 'Avg Signal Strength (dBm)',
-            'Signal/Noise Ratio (dB)': 'Avg SNR (dB)'
+            'Signal strength (dBm)': ['mean', 'std'],
+            'Signal/Noise Ratio (dB)': ['mean', 'std']
         })
-        .sort_values(by='Frequency (MHz)')
+        .reset_index()
     )
 
+    # Rename columns
+    summary.columns = [
+        'Frequency (MHz)',
+        'Unique BSSIDs',
+        'Avg Signal Strength (dBm)',
+        'Signal Strength Std (dBm)',
+        'Avg SNR (dB)',
+        'SNR Std (dB)'
+    ]
+
+    # Add Band column
+    summary['Band'] = summary['Frequency (MHz)'].apply(lambda f: '2.4 GHz' if f < 3000 else '5 GHz')
+
+    # Add Density %
+    total_bssids = summary['Unique BSSIDs'].sum()
+    summary['Density %'] = (summary['Unique BSSIDs'] / total_bssids * 100).round(2)
+
+    # Output
     print("\nWi-Fi Density Summary:\n")
     print(summary.to_string(index=False))
     summary.to_csv(os.path.join(output_dir, "density_summary.csv"), index=False)
 
-    # ========== Base Styling ==========
+    # ========== Styling ==========
     sns.set_theme(style="whitegrid")
     blue = "steelblue"
 
@@ -62,14 +72,14 @@ def analyze_wifi_density(csv_path, output_dir="../outputs/density_results/"):
     plt.savefig(os.path.join(output_dir, "snr_per_bssid.png"))
     plt.close()
 
-    # === Clean Signal/noise ratio globally ===
+    # Clean SNR globally if needed
     if df['Signal/noise ratio'].dtype != 'float':
         df['Signal/noise ratio'] = df['Signal/noise ratio'].astype(str).str.replace(" dB", "", regex=False)
         df['Signal/noise ratio'] = pd.to_numeric(df['Signal/noise ratio'], errors='coerce')
 
     df = df.dropna(subset=['Signal/noise ratio'])
 
-    # Classify SNR zones
+    # SNR Quality classification
     def classify_snr(snr):
         if snr > 25:
             return 'Good'
@@ -80,7 +90,7 @@ def analyze_wifi_density(csv_path, output_dir="../outputs/density_results/"):
 
     df['SNR Quality'] = df['Signal/noise ratio'].apply(classify_snr)
 
-    # Barplot for SNR Quality
+    # SNR Quality Barplot
     plt.figure(figsize=(8, 5))
     sns.countplot(data=df, x='SNR Quality', hue='SNR Quality', order=['Poor', 'Moderate', 'Good'], palette='Blues')
     plt.title("SNR Quality Classification", fontsize=14)
@@ -91,7 +101,7 @@ def analyze_wifi_density(csv_path, output_dir="../outputs/density_results/"):
     plt.savefig(os.path.join(output_dir, "snr_quality_barplot.png"))
     plt.close()
 
-    # Histogram: Signal Strength
+    # Signal Strength Histogram
     plt.figure(figsize=(10, 6))
     sns.histplot(data=beacons, x='Signal strength (dBm)', bins=30, kde=True, color=blue)
     plt.title("Signal Strength Distribution (All Frequencies)")
@@ -102,7 +112,7 @@ def analyze_wifi_density(csv_path, output_dir="../outputs/density_results/"):
     plt.savefig(os.path.join(output_dir, "signal_strength_distribution.png"))
     plt.close()
 
-    # Violin plot for Signal Strength by Frequency
+    # Signal Strength Violin Plot by Frequency
     plt.figure(figsize=(10, 6))
     sns.violinplot(data=beacons, x='Frequency (MHz)', y='Signal strength (dBm)', inner="quartile", color=blue)
     plt.title("Signal Strength Distribution by Frequency")
@@ -110,7 +120,7 @@ def analyze_wifi_density(csv_path, output_dir="../outputs/density_results/"):
     plt.savefig(os.path.join(output_dir, "violinplot_signal_strength.png"))
     plt.close()
 
-    # Histogram: SNR Distribution
+    # SNR Histogram
     plt.figure(figsize=(12, 6))
     sns.histplot(data=df, x='Signal/noise ratio', bins=30, kde=True, color=blue)
     plt.title("SNR Distribution Across All Packets", fontsize=14)
@@ -136,12 +146,30 @@ def analyze_wifi_density(csv_path, output_dir="../outputs/density_results/"):
     plt.tight_layout()
     plt.savefig(os.path.join(output_dir, 'channel_heatmap.png'))
     plt.close()
+    
+    if 'Channel' in df.columns:
+        df['Channel'] = pd.to_numeric(df['Channel'], errors='coerce')
+        df_channel_density = df.dropna(subset=['Channel'])
+
+        if not df_channel_density.empty:
+            channel_counts = df_channel_density['Channel'].value_counts().reset_index()
+            channel_counts.columns = ['Channel', 'Packet Count']
+            channel_counts = channel_counts.sort_values(by='Channel')
+
+            plt.figure(figsize=(10, 5))
+            sns.barplot(data=channel_counts, x='Channel', y='Packet Count', color=blue)
+            plt.title("Wi-Fi Channel Packet Density")
+            plt.xlabel("Wi-Fi Channel")
+            plt.ylabel("Captured Packet Count")
+            plt.grid(axis='y', linestyle='--', alpha=0.5)
+            plt.tight_layout()
+            plt.savefig(os.path.join(output_dir, "channel_packet_density.png"))
+            plt.close()
 
     print(f"\nAll density plots and summaries saved to: {output_dir}")
     return summary
 
-
-# Optional direct run
+# Entry point
 if __name__ == "__main__":
-    csv_path = "../results_parser/home_Network5G_parsed_packets.csv"
+    csv_path = "../results_parser/home_parsed_packets.csv"
     analyze_wifi_density(csv_path)
