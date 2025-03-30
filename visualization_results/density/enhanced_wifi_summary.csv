@@ -1,2 +1,2 @@
-Total APs,Total Channels,Average Signal Strength,Average SNR,Most Used Channel,Average Data Rate,Number of Vendors,Best Performing AP,Channel Utilization_36,Channel Utilization_1,Signal Quality Stats_Excellent (>-50dBm),Signal Quality Stats_Good (-50 to -60dBm),Signal Quality Stats_Fair (-60 to -70dBm),Signal Quality Stats_Poor (<-70dBm)
-16,2,-74.46 dBm,16.05,36,3.95 Mbps,16,0c:67:14:92:8c:44,1082,749,11,377,301,1142
+2.4_GHz_Total APs,2.4_GHz_Total Channels,2.4_GHz_Average Signal Strength,2.4_GHz_Average SNR,2.4_GHz_Most Used Channel,2.4_GHz_Average Data Rate,2.4_GHz_Signal Quality Stats_Excellent (>-50dBm),2.4_GHz_Signal Quality Stats_Good (-50 to -60dBm),2.4_GHz_Signal Quality Stats_Fair (-60 to -70dBm),2.4_GHz_Signal Quality Stats_Poor (<-70dBm)
+8,1,-60.21 dBm,28.35,5,1.00 Mbps,248,84,41,353

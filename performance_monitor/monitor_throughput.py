@@ -299,17 +299,108 @@ def generate_throughput_summary(df, output_dir):
         f.write(f"Weak Signal Frames: {stats['Frames with Weak Signal (<-70 dBm)']} ({stats['Weak Signal Percentage']:.2f}%)\n")
         f.write(f"Poor SNR Frames: {stats['Frames with Poor SNR (<10 dB)']} ({stats['Poor SNR Percentage']:.2f}%)\n")
         
-        # Recommendations
-        f.write("\nRecommendations:\n")
-        f.write("---------------\n")
-        if stats['Weak Signal Percentage'] > 20:
-            f.write("- Consider improving signal coverage as more than 20% of frames have weak signal strength\n")
-        if stats['Poor SNR Percentage'] > 20:
-            f.write("- Investigate sources of interference as more than 20% of frames have poor SNR\n")
-        if stats['Low Throughput Percentage'] > 20:
-            f.write("- Look into potential bottlenecks as more than 20% of frames have low throughput\n")
-        if stats['High Throughput Percentage'] < 30:
-            f.write("- Network performance might need optimization as less than 30% of frames achieve high throughput\n")
+        # Add diagnosis
+        f.write("\nNetwork Diagnosis:\n")
+        f.write("----------------\n")
+        
+        # 1. Signal Quality Assessment
+        signal_quality = ""
+        avg_signal = df['Signal strength'].mean()
+        if avg_signal > -50:
+            signal_quality = "Excellent"
+        elif avg_signal > -60:
+            signal_quality = "Very Good"
+        elif avg_signal > -70:
+            signal_quality = "Good"
+        else:
+            signal_quality = "Poor"
+            
+        signal_range = df['Signal strength'].max() - df['Signal strength'].min()
+        
+        f.write("\n1. Signal Analysis:\n")
+        f.write(f"- Signal Quality: {signal_quality} ({avg_signal:.1f} dBm)\n")
+        f.write(f"- Signal Variation: {signal_range:.1f} dB ")
+        if signal_range > 40:
+            f.write("(High variation indicates significant client mobility or interference)\n")
+        else:
+            f.write("(Stable signal strength)\n")
+            
+        # 2. Performance Analysis
+        f.write("\n2. Network Performance:\n")
+        avg_throughput = df['Throughput'].mean()
+        retry_rate = df['Retry'].mean() * 100
+        bandwidth = df['Bandwidth'].mode().iloc[0] if 'Bandwidth' in df.columns else 20
+        
+        # Theoretical max throughput based on PHY type and bandwidth
+        phy_type = df['PHY type'].mode().iloc[0]
+        theoretical_max = {
+            '802.11ac': bandwidth * 8,  # ~8 Mbps per MHz
+            '802.11n': bandwidth * 5,   # ~5 Mbps per MHz
+            '802.11a': 54,              # Max for 802.11a
+            '802.11g': 54,              # Max for 802.11g
+            '802.11b': 11               # Max for 802.11b
+        }.get(map_phy_type(phy_type), bandwidth * 5)
+        
+        efficiency = (avg_throughput / theoretical_max) * 100
+        
+        f.write(f"- Throughput Efficiency: {efficiency:.1f}% of theoretical maximum\n")
+        f.write(f"- Current: {avg_throughput:.1f} Mbps / Theoretical Max: {theoretical_max:.1f} Mbps\n")
+        f.write(f"- Frame Retry Rate: {retry_rate:.1f}% ")
+        if retry_rate > 10:
+            f.write("(High - indicates significant interference or connection issues)\n")
+        elif retry_rate > 5:
+            f.write("(Moderate - some interference present)\n")
+        else:
+            f.write("(Normal - good connection quality)\n")
+            
+        # 3. Channel Environment
+        f.write("\n3. Channel Environment:\n")
+        snr = df['Signal/noise ratio'].mean()
+        snr_std = df['Signal/noise ratio'].std()
+        noise_level = df['Noise level'].mean()
+        
+        f.write(f"- Operating on Channel {df['Actual Channel'].mode().iloc[0]}\n")
+        f.write(f"- SNR: {snr:.1f} dB ")
+        if snr > 40:
+            f.write("(Excellent - very clean RF environment)\n")
+        elif snr > 25:
+            f.write("(Good - minimal interference)\n")
+        else:
+            f.write("(Poor - significant interference present)\n")
+            
+        f.write(f"- Noise Floor: {noise_level:.1f} dBm ")
+        if noise_level < -90:
+            f.write("(Low noise environment)\n")
+        elif noise_level < -85:
+            f.write("(Moderate noise level)\n")
+        else:
+            f.write("(High noise level - possible interference sources nearby)\n")
+            
+        # 4. Overall Assessment
+        f.write("\n4. Overall Assessment:\n")
+        issues = []
+        if signal_range > 40:
+            issues.append("high signal variation")
+        if retry_rate > 10:
+            issues.append("high retry rate")
+        if snr < 25:
+            issues.append("low SNR")
+        if efficiency < 50:
+            issues.append("low throughput efficiency")
+            
+        if not issues:
+            f.write("The network is operating optimally with good signal quality, ")
+            f.write("efficient throughput, and minimal interference.\n")
+        else:
+            f.write(f"The network shows suboptimal performance due to {', '.join(issues)}. ")
+            f.write("These issues suggest ")
+            if "high signal variation" in issues:
+                f.write("client mobility or environmental interference, ")
+            if "high retry rate" in issues or "low SNR" in issues:
+                f.write("RF interference or physical obstacles, ")
+            if "low throughput efficiency" in issues:
+                f.write("possible network congestion or protocol overhead, ")
+            f.write("which are affecting overall network performance.\n")
 
 def plot_device_analysis(df, output_dir):
     """Create enhanced analysis plots for devices connected to the specific AP."""
@@ -510,15 +601,36 @@ def plot_throughput_zones(df, output_dir):
     """Create analysis of throughput performance zones."""
     plt.figure(figsize=(12, 8))
     
-    # Create performance zones based on actual data range
+    # Calculate throughput statistics
     throughput_max = df['Throughput'].max()
-    zone_boundaries = [0, 100, 300, 500, throughput_max]
-    zone_labels = ['Basic\n(0-100 Mbps)', 'Standard\n(100-300 Mbps)', 
-                  'High\n(300-500 Mbps)', f'Ultra\n(500-{throughput_max:.0f} Mbps)']
+    throughput_min = df['Throughput'].min()
     
+    # Create dynamic zone boundaries based on actual data
+    if throughput_max <= 100:
+        zone_boundaries = [throughput_min, 25, 50, 75, throughput_max]
+        zone_labels = ['Very Low', 'Low', 'Medium', 'High']
+    elif throughput_max <= 300:
+        zone_boundaries = [throughput_min, 50, 100, 200, throughput_max]
+        zone_labels = ['Basic', 'Standard', 'Good', 'Excellent']
+    else:
+        # For high throughput networks
+        quartiles = [0.25, 0.5, 0.75]
+        zone_boundaries = [throughput_min]
+        zone_boundaries.extend(df['Throughput'].quantile(quartiles))
+        zone_boundaries.append(throughput_max)
+        zone_labels = ['Low', 'Medium', 'High', 'Ultra']
+    
+    # Ensure boundaries are unique and strictly increasing
+    zone_boundaries = sorted(list(set(zone_boundaries)))
+    
+    # Adjust labels if needed
+    zone_labels = zone_labels[:len(zone_boundaries)-1]
+    
+    # Create the zones
     df['Throughput Zone'] = pd.cut(df['Throughput'], 
-                                 bins=zone_boundaries,
-                                 labels=zone_labels)
+                                bins=zone_boundaries,
+                                labels=zone_labels,
+                                include_lowest=True)
     
     # Calculate statistics for each zone
     zone_stats = df.groupby('Throughput Zone', observed=True).agg(
@@ -864,30 +976,108 @@ def analyze_wifi_diagnostics(df, output_dir):
             for key, value in stats.items():
                 f.write(f"{key}: {value}\n")
         
-        # Add recommendations
-        f.write("\nRecommendations:\n")
-        f.write("---------------\n")
+        # Add diagnosis
+        f.write("\nNetwork Diagnosis:\n")
+        f.write("----------------\n")
         
-        if weak_signal_pct > 20:
-            f.write("- Consider repositioning access points or adding additional APs to improve signal coverage\n")
-        if poor_snr_pct > 20:
-            f.write("- Investigate potential sources of interference and optimize channel selection\n")
-        if low_throughput_pct > 30:
-            f.write("- Review network configuration and consider upgrading to higher bandwidth channels\n")
-        if high_retry_pct > 10:
-            f.write("- Optimize network settings to reduce frame retransmissions\n")
-        if low_mcs_pct > 40:
-            f.write("- Check for interference or signal issues affecting modulation and coding scheme selection\n")
-        
-        # Add channel-specific recommendations
-        channel_snr_std = df['Signal/noise ratio'].std()
-        if channel_snr_std > 10:
-            f.write(f"- High SNR variation ({channel_snr_std:.1f} dB) suggests potential interference or signal instability\n")
-        
-        # Add signal strength recommendations
+        # 1. Signal Quality Assessment
+        signal_quality = ""
+        avg_signal = df['Signal strength'].mean()
+        if avg_signal > -50:
+            signal_quality = "Excellent"
+        elif avg_signal > -60:
+            signal_quality = "Very Good"
+        elif avg_signal > -70:
+            signal_quality = "Good"
+        else:
+            signal_quality = "Poor"
+            
         signal_range = df['Signal strength'].max() - df['Signal strength'].min()
-        if signal_range > 50:
-            f.write(f"- Large signal strength variation ({signal_range:.1f} dB) indicates inconsistent coverage\n")
+        
+        f.write("\n1. Signal Analysis:\n")
+        f.write(f"- Signal Quality: {signal_quality} ({avg_signal:.1f} dBm)\n")
+        f.write(f"- Signal Variation: {signal_range:.1f} dB ")
+        if signal_range > 40:
+            f.write("(High variation indicates significant client mobility or interference)\n")
+        else:
+            f.write("(Stable signal strength)\n")
+            
+        # 2. Performance Analysis
+        f.write("\n2. Network Performance:\n")
+        avg_throughput = df['Throughput'].mean()
+        retry_rate = df['Retry'].mean() * 100
+        bandwidth = df['Bandwidth'].mode().iloc[0] if 'Bandwidth' in df.columns else 20
+        
+        # Theoretical max throughput based on PHY type and bandwidth
+        phy_type = df['PHY type'].mode().iloc[0]
+        theoretical_max = {
+            '802.11ac': bandwidth * 8,  # ~8 Mbps per MHz
+            '802.11n': bandwidth * 5,   # ~5 Mbps per MHz
+            '802.11a': 54,              # Max for 802.11a
+            '802.11g': 54,              # Max for 802.11g
+            '802.11b': 11               # Max for 802.11b
+        }.get(map_phy_type(phy_type), bandwidth * 5)
+        
+        efficiency = (avg_throughput / theoretical_max) * 100
+        
+        f.write(f"- Throughput Efficiency: {efficiency:.1f}% of theoretical maximum\n")
+        f.write(f"- Current: {avg_throughput:.1f} Mbps / Theoretical Max: {theoretical_max:.1f} Mbps\n")
+        f.write(f"- Frame Retry Rate: {retry_rate:.1f}% ")
+        if retry_rate > 10:
+            f.write("(High - indicates significant interference or connection issues)\n")
+        elif retry_rate > 5:
+            f.write("(Moderate - some interference present)\n")
+        else:
+            f.write("(Normal - good connection quality)\n")
+            
+        # 3. Channel Environment
+        f.write("\n3. Channel Environment:\n")
+        snr = df['Signal/noise ratio'].mean()
+        snr_std = df['Signal/noise ratio'].std()
+        noise_level = df['Noise level'].mean()
+        
+        f.write(f"- Operating on Channel {df['Actual Channel'].mode().iloc[0]}\n")
+        f.write(f"- SNR: {snr:.1f} dB ")
+        if snr > 40:
+            f.write("(Excellent - very clean RF environment)\n")
+        elif snr > 25:
+            f.write("(Good - minimal interference)\n")
+        else:
+            f.write("(Poor - significant interference present)\n")
+            
+        f.write(f"- Noise Floor: {noise_level:.1f} dBm ")
+        if noise_level < -90:
+            f.write("(Low noise environment)\n")
+        elif noise_level < -85:
+            f.write("(Moderate noise level)\n")
+        else:
+            f.write("(High noise level - possible interference sources nearby)\n")
+            
+        # 4. Overall Assessment
+        f.write("\n4. Overall Assessment:\n")
+        issues = []
+        if signal_range > 40:
+            issues.append("high signal variation")
+        if retry_rate > 10:
+            issues.append("high retry rate")
+        if snr < 25:
+            issues.append("low SNR")
+        if efficiency < 50:
+            issues.append("low throughput efficiency")
+            
+        if not issues:
+            f.write("The network is operating optimally with good signal quality, ")
+            f.write("efficient throughput, and minimal interference.\n")
+        else:
+            f.write(f"The network shows suboptimal performance due to {', '.join(issues)}. ")
+            f.write("These issues suggest ")
+            if "high signal variation" in issues:
+                f.write("client mobility or environmental interference, ")
+            if "high retry rate" in issues or "low SNR" in issues:
+                f.write("RF interference or physical obstacles, ")
+            if "low throughput efficiency" in issues:
+                f.write("possible network congestion or protocol overhead, ")
+            f.write("which are affecting overall network performance.\n")
 
 def analyze_wifi_throughput(csv_file):
     """Main function to analyze WiFi throughput data and generate visualizations."""

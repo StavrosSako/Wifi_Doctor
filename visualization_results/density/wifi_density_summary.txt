@@ -1,17 +1,15 @@
 WiFi Network Analysis Summary
 ==========================
 
-Total Access Points: 16
-Total Channels Used: 2
-Average Signal Strength (RSSI): -74.5 dBm
-Average Signal-to-Noise Ratio (SNR): 16.0 dB
-Most Common Channel: 1
+Total Access Points: 8
+Total Channels Used: 1
+Average Signal Strength (RSSI): -60.2 dBm
+Average Signal-to-Noise Ratio (SNR): 28.3 dB
+Most Common Channel: 5
 Most Common PHY Type: 802.11g
 
 Channel Distribution (Unique APs):
-Channel 1: 9 APs
-Channel 36: 7 APs
+Channel 5: 8 APs
 
 PHY Type Distribution (Unique APs):
-802.11a: 7 APs
-802.11g: 9 APs
+802.11g: 8 APs

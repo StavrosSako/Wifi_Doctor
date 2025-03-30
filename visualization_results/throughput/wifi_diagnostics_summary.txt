@@ -6,16 +6,16 @@ Signal Quality Issues:
 ---------------------
 Weak Signal Frames: 0.0%
 Poor SNR Frames: 0.0%
-Average Signal Strength: -31.5 dBm
-Average SNR: 59.3 dB
-Average Noise Level: -90.7 dBm
+Average Signal Strength: -29.4 dBm
+Average SNR: 60.5 dB
+Average Noise Level: -89.9 dBm
 
 Performance Issues:
 ------------------
-Low Throughput Frames: 1.8%
+Low Throughput Frames: 1.4%
 High Retry Rate Frames: 2.5%
 Low MCS Index Frames: 0.0%
-Average Throughput: 750.5 Mbps
+Average Throughput: 728.1 Mbps
 
 Protocol Analysis:
 -----------------
@@ -28,11 +28,27 @@ Channel Analysis:
 ----------------
 Channel: Channel 36
 Channel Count: 1
-Average SNR: 59.3 dB
-SNR Standard Deviation: 9.7 dB
-Average Signal Strength: -31.5 dBm
+Average SNR: 60.5 dB
+SNR Standard Deviation: 9.9 dB
+Average Signal Strength: -29.4 dBm
 Signal Strength Range: -85.0 to 0.0 dBm
 
-Recommendations:
----------------
-- Large signal strength variation (85.0 dB) indicates inconsistent coverage
+Network Diagnosis:
+----------------
+
+1. Signal Analysis:
+- Signal Quality: Excellent (-29.4 dBm)
+- Signal Variation: 85.0 dB (High variation indicates significant client mobility or interference)
+
+2. Network Performance:
+- Throughput Efficiency: 455.0% of theoretical maximum
+- Current: 728.1 Mbps / Theoretical Max: 160.0 Mbps
+- Frame Retry Rate: 2.5% (Normal - good connection quality)
+
+3. Channel Environment:
+- Operating on Channel 36
+- SNR: 60.5 dB (Excellent - very clean RF environment)
+- Noise Floor: -89.9 dBm (Moderate noise level)
+
+4. Overall Assessment:
+The network shows suboptimal performance due to high signal variation. These issues suggest client mobility or environmental interference, which are affecting overall network performance.

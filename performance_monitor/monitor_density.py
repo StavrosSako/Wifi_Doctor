@@ -60,6 +60,19 @@ def map_phy_type(phy_value):
     }
     return phy_map.get(int(phy_value), f'Unknown ({phy_value})')
 
+def categorize_channel(channel):
+    """Categorize channel into 2.4GHz or 5GHz band."""
+    try:
+        channel = int(channel)
+        if 1 <= channel <= 14:
+            return '2.4 GHz'
+        elif channel >= 36:  # 5GHz channels start from 36
+            return '5 GHz'
+        else:
+            return 'Unknown'
+    except:
+        return 'Unknown'
+
 def plot_ap_count_per_channel(df, output_dir):
     """Plot the count of unique access points per channel."""
     plt.figure(figsize=(12, 6))
@@ -249,24 +262,93 @@ def generate_wifi_density_summary(df, output_dir):
         for phy_type, count in summary['PHY Type Distribution'].items():
             f.write(f"{phy_type}: {count} APs\n")
 
+def plot_channel_distribution(df, output_dir):
+    """Plot channel distribution with band distinction."""
+    plt.figure(figsize=(12, 6))
+    
+    # Add band category
+    df['Band'] = df['Actual Channel'].apply(categorize_channel)
+    
+    # Create subplots for each band
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+    
+    # 2.4 GHz Plot
+    data_24 = df[df['Band'] == '2.4 GHz']
+    if not data_24.empty:
+        sns.histplot(data=data_24, x='Actual Channel', ax=ax1, 
+                    bins=13, color='blue', alpha=0.6)
+        ax1.set_title('2.4 GHz Channel Distribution')
+        ax1.set_xlabel('Channel Number')
+        ax1.set_ylabel('Number of Frames')
+        ax1.grid(True, alpha=0.3)
+    
+    # 5 GHz Plot
+    data_5 = df[df['Band'] == '5 GHz']
+    if not data_5.empty:
+        sns.histplot(data=data_5, x='Actual Channel', ax=ax2,
+                    bins=min(len(data_5['Actual Channel'].unique()), 20),
+                    color='green', alpha=0.6)
+        ax2.set_title('5 GHz Channel Distribution')
+        ax2.set_xlabel('Channel Number')
+        ax2.set_ylabel('Number of Frames')
+        ax2.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.savefig(output_dir / 'channel_distribution.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
+def plot_signal_distribution(df, output_dir):
+    """Plot signal distribution with band distinction."""
+    plt.figure(figsize=(15, 6))
+    
+    # Add band category if not already present
+    if 'Band' not in df.columns:
+        df['Band'] = df['Actual Channel'].apply(categorize_channel)
+    
+    # Create violin plots for signal strength by band
+    plt.subplot(1, 2, 1)
+    sns.violinplot(data=df, x='Band', y='Signal strength')
+    plt.title('Signal Strength Distribution by Band')
+    plt.grid(True, alpha=0.3)
+    
+    # Create violin plots for SNR by band
+    plt.subplot(1, 2, 2)
+    sns.violinplot(data=df, x='Band', y='Signal/noise ratio')
+    plt.title('SNR Distribution by Band')
+    plt.grid(True, alpha=0.3)
+    
+    plt.tight_layout()
+    plt.savefig(output_dir / 'signal_distribution_by_band.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
 def plot_ap_stability(df, output_dir):
-    """Analyze and plot AP signal stability over time."""
+    """Analyze and plot AP signal stability over time with band distinction."""
+    if 'Band' not in df.columns:
+        df['Band'] = df['Actual Channel'].apply(categorize_channel)
+    
     plt.figure(figsize=(12, 6))
     
     # Group by BSS ID and calculate signal strength statistics
-    ap_stats = df.groupby('BSS Id')['Signal strength'].agg(['mean', 'std', 'count']).reset_index()
+    ap_stats = df.groupby(['BSS Id', 'Band'])['Signal strength'].agg(['mean', 'std', 'count']).reset_index()
     ap_stats = ap_stats[ap_stats['count'] > 10]  # Filter APs with enough samples
     
-    # Create scatter plot of mean vs standard deviation
-    plt.scatter(ap_stats['mean'], ap_stats['std'], alpha=0.6)
+    # Create scatter plot with different colors for each band
+    for band in ap_stats['Band'].unique():
+        band_data = ap_stats[ap_stats['Band'] == band]
+        plt.scatter(band_data['mean'], band_data['std'], 
+                   alpha=0.6, 
+                   label=band,
+                   marker='o' if band == '2.4 GHz' else '^')
+    
     plt.xlabel('Mean Signal Strength (dBm)')
     plt.ylabel('Signal Strength Standard Deviation')
-    plt.title('AP Signal Stability Analysis')
+    plt.title('AP Signal Stability Analysis by Band')
+    plt.legend()
     
     # Add annotations for unstable APs
     unstable_aps = ap_stats[ap_stats['std'] > ap_stats['std'].mean()]
     for _, ap in unstable_aps.iterrows():
-        plt.annotate(ap['BSS Id'][-8:], 
+        plt.annotate(f"{ap['BSS Id'][-8:]} ({ap['Band']})", 
                     (ap['mean'], ap['std']),
                     xytext=(5, 5), textcoords='offset points')
     
@@ -420,43 +502,57 @@ def plot_network_quality_metrics(df, output_dir):
     plt.close()
 
 def generate_enhanced_summary(df, output_dir):
-    """Generate an enhanced summary of the WiFi environment."""
-    summary = {
-        'Total APs': len(df['BSS Id'].unique()),
-        'Total Channels': len(df['Actual Channel'].unique()),
-        'Average Signal Strength': f"{df['Signal strength'].mean():.2f} dBm",
-        'Average SNR': f"{df['Signal/noise ratio'].mean():.2f}",
-        'Most Used Channel': df['Actual Channel'].mode().iloc[0],
-        'Average Data Rate': f"{df['Data Rate'].mean():.2f} Mbps",
-        'Number of Vendors': len(df['BSS Id'].str[:8].unique()),
-        'Best Performing AP': df.groupby('BSS Id')['Signal strength'].mean().idxmax(),
-        'Channel Utilization': dict(df['Actual Channel'].value_counts().nlargest(5)),
-        'Signal Quality Stats': {
-            'Excellent (>-50dBm)': len(df[df['Signal strength'] > -50]),
-            'Good (-50 to -60dBm)': len(df[(df['Signal strength'] <= -50) & (df['Signal strength'] > -60)]),
-            'Fair (-60 to -70dBm)': len(df[(df['Signal strength'] <= -60) & (df['Signal strength'] > -70)]),
-            'Poor (<-70dBm)': len(df[df['Signal strength'] <= -70])
-        }
-    }
+    """Generate an enhanced summary of the WiFi environment with band distinction."""
+    if 'Band' not in df.columns:
+        df['Band'] = df['Actual Channel'].apply(categorize_channel)
     
-    # Save as text file
+    # Separate statistics by band
+    band_stats = {}
+    for band in df['Band'].unique():
+        band_data = df[df['Band'] == band]
+        band_stats[band] = {
+            'Total APs': len(band_data['BSS Id'].unique()),
+            'Total Channels': len(band_data['Actual Channel'].unique()),
+            'Average Signal Strength': f"{band_data['Signal strength'].mean():.2f} dBm",
+            'Average SNR': f"{band_data['Signal/noise ratio'].mean():.2f}",
+            'Most Used Channel': band_data['Actual Channel'].mode().iloc[0],
+            'Average Data Rate': f"{band_data['Data Rate'].mean():.2f} Mbps",
+            'Signal Quality Stats': {
+                'Excellent (>-50dBm)': len(band_data[band_data['Signal strength'] > -50]),
+                'Good (-50 to -60dBm)': len(band_data[(band_data['Signal strength'] <= -50) & 
+                                                     (band_data['Signal strength'] > -60)]),
+                'Fair (-60 to -70dBm)': len(band_data[(band_data['Signal strength'] <= -60) & 
+                                                     (band_data['Signal strength'] > -70)]),
+                'Poor (<-70dBm)': len(band_data[band_data['Signal strength'] <= -70])
+            }
+        }
+    
+    # Save as text file with band distinction
     with open(output_dir / 'enhanced_wifi_summary.txt', 'w') as f:
-        for key, value in summary.items():
-            f.write(f"{key}:\n")
+        f.write("WiFi Environment Summary by Band\n")
+        f.write("==============================\n\n")
+        
+        for band, stats in band_stats.items():
+            f.write(f"\n{band} Band Statistics:\n")
+            f.write("=" * (len(band) + 15) + "\n")
+            for key, value in stats.items():
+                if isinstance(value, dict):
+                    f.write(f"\n{key}:\n")
+                    for subkey, subvalue in value.items():
+                        f.write(f"  {subkey}: {subvalue}\n")
+                else:
+                    f.write(f"{key}: {value}\n")
+    
+    # Save as CSV with band distinction
+    flat_summary = {}
+    for band, stats in band_stats.items():
+        band_prefix = band.replace(" ", "_")
+        for key, value in stats.items():
             if isinstance(value, dict):
                 for subkey, subvalue in value.items():
-                    f.write(f"  {subkey}: {subvalue}\n")
+                    flat_summary[f"{band_prefix}_{key}_{subkey}"] = subvalue
             else:
-                f.write(f"  {value}\n")
-    
-    # Save as CSV
-    flat_summary = {}
-    for key, value in summary.items():
-        if isinstance(value, dict):
-            for subkey, subvalue in value.items():
-                flat_summary[f"{key}_{subkey}"] = subvalue
-        else:
-            flat_summary[key] = value
+                flat_summary[f"{band_prefix}_{key}"] = value
     
     pd.DataFrame([flat_summary]).to_csv(output_dir / 'enhanced_wifi_summary.csv', index=False)
 
@@ -466,11 +562,11 @@ def plot_time_based_analysis(df, output_dir):
     
     # Signal Strength Over Time
     df['Sample Index'] = range(len(df))  # Use row index as time proxy
-    for bss_id in df['BSS Id'].unique()[:5]:  # Plot top 5 APs
+    for bss_id in df['BSS Id'].unique()[:8]:  # Plot top 8 APs
         ap_data = df[df['BSS Id'] == bss_id]
         plt.plot(ap_data['Sample Index'], ap_data['Signal strength'], label=bss_id, alpha=0.7)
     
-    plt.title('Signal Strength Over Time (Top 5 APs)')
+    plt.title('Signal Strength Over Time (Top 8 APs)')
     plt.xlabel('Sample Number')
     plt.ylabel('Signal Strength (dBm)')
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
@@ -537,6 +633,8 @@ def analyze_wifi_density(csv_file):
     plot_phy_type_distribution(df, density_dir)
     plot_channel_analysis(df, density_dir)
     generate_wifi_density_summary(df, density_dir)
+    plot_channel_distribution(df, density_dir)
+    plot_signal_distribution(df, density_dir)
     plot_ap_stability(df, density_dir)
     plot_network_coverage(df, density_dir)
     plot_channel_utilization_patterns(df, density_dir)

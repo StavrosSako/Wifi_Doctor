@@ -5,48 +5,48 @@ Detailed Network Performance Statistics
 Throughput Statistics:
 ---------------------
 Min: 5.85
-Mean: 750.47
-Median: 702.59
-75th Percentile: 843.08
-95th Percentile: 843.08
-Max: 995.28
-Std Dev: 136.18
+Mean: 728.06
+Median: 702.42
+75th Percentile: 842.88
+95th Percentile: 842.88
+Max: 995.04
+Std Dev: 128.97
 
 Data Rate Statistics:
 --------------------
 Min: 6.00
-Mean: 769.71
+Mean: 746.91
 Median: 720.60
 75th Percentile: 864.70
 95th Percentile: 864.70
 Max: 1020.80
-Std Dev: 139.67
+Std Dev: 132.31
 
 Signal strength Statistics:
 --------------------------
 Min: -85.00
-Mean: -31.46
-Median: -32.00
-75th Percentile: -25.00
+Mean: -29.37
+Median: -25.00
+75th Percentile: -24.00
 95th Percentile: -24.00
 Max: 0.00
-Std Dev: 9.83
+Std Dev: 9.49
 
 Signal/noise ratio Statistics:
 -----------------------------
 Min: 8.00
-Mean: 59.29
-Median: 60.00
-75th Percentile: 66.00
-95th Percentile: 68.05
+Mean: 60.50
+Median: 61.00
+75th Percentile: 68.00
+95th Percentile: 68.00
 Max: 95.00
-Std Dev: 9.73
+Std Dev: 9.86
 
 Metric Correlations:
 -------------------
 Throughput vs Data Rate: 1.00
-Throughput vs Signal strength: -0.12
-Throughput vs Signal/noise ratio: -0.05
-Data Rate vs Signal strength: -0.12
-Data Rate vs Signal/noise ratio: -0.05
+Throughput vs Signal strength: -0.13
+Throughput vs Signal/noise ratio: -0.12
+Data Rate vs Signal strength: -0.13
+Data Rate vs Signal/noise ratio: -0.12
 Signal strength vs Signal/noise ratio: 0.95
