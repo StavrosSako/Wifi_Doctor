@@ -1,0 +1,38 @@
+WiFi Network Diagnostics Summary
+==============================
+
+
+Signal Quality Issues:
+---------------------
+Weak Signal Frames: 0.0%
+Poor SNR Frames: 0.0%
+Average Signal Strength: -31.5 dBm
+Average SNR: 59.3 dB
+Average Noise Level: -90.7 dBm
+
+Performance Issues:
+------------------
+Low Throughput Frames: 1.8%
+High Retry Rate Frames: 2.5%
+Low MCS Index Frames: 0.0%
+Average Throughput: 750.5 Mbps
+
+Protocol Analysis:
+-----------------
+Most Common PHY Type: 802.11ac
+Average MCS Index: N/A
+Retry Rate: 2.5%
+Channel Bandwidth: 20 MHz
+
+Channel Analysis:
+----------------
+Channel: Channel 36
+Channel Count: 1
+Average SNR: 59.3 dB
+SNR Standard Deviation: 9.7 dB
+Average Signal Strength: -31.5 dBm
+Signal Strength Range: -85.0 to 0.0 dBm
+
+Recommendations:
+---------------
+- Large signal strength variation (85.0 dB) indicates inconsistent coverage

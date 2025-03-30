@@ -1,0 +1,39 @@
+WiFi Throughput Analysis Summary
+===============================
+
+Basic Statistics:
+----------------
+Total Frames: 5000
+Average Throughput (Mbps): 750.47
+Median Throughput (Mbps): 702.59
+Max Throughput (Mbps): 995.28
+Min Throughput (Mbps): 5.85
+Throughput Std Dev (Mbps): 136.18
+Average Signal Strength (dBm): -31.46
+Average SNR (dB): 59.29
+Average Retry Rate (%): 0.03
+Average MCS Index: nan
+Throughput 25th Percentile (Mbps): 702.59
+Throughput 50th Percentile (Mbps): 702.59
+Throughput 75th Percentile (Mbps): 843.08
+Throughput 95th Percentile (Mbps): 843.08
+Most Common MCS Index: N/A
+Most Common PHY Type: 11
+Frames with High Throughput (>10 Mbps): 4997
+Frames with Low Throughput (<1 Mbps): 0
+Frames with Weak Signal (<-70 dBm): 2
+Frames with Poor SNR (<10 dB): 1
+High Throughput Percentage: 99.94
+Low Throughput Percentage: 0.00
+Weak Signal Percentage: 0.04
+Poor SNR Percentage: 0.02
+
+Performance Analysis:
+-------------------
+High Throughput Frames: 4997 (99.94%)
+Low Throughput Frames: 0 (0.00%)
+Weak Signal Frames: 2 (0.04%)
+Poor SNR Frames: 1 (0.02%)
+
+Recommendations:
+---------------

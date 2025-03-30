@@ -1,0 +1,2 @@
+Total APs,Total Channels,Average RSSI,Average SNR,Most Common Channel,Most Common PHY Type,Channel Distribution,PHY Type Distribution
+16,2,-74.46477334789732,16.04587657018023,1,802.11g,"{1: 9, 36: 7}","{'802.11a': 7, '802.11g': 9}"
