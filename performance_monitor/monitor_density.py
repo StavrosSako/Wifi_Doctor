@@ -286,61 +286,6 @@ def plot_network_quality_metrics(df, output_dir):
     plt.savefig(output_dir / 'network_quality.png', dpi=300, bbox_inches='tight')
     plt.close()
 
-def generate_enhanced_summary(df, output_dir):
-    """Generate an enhanced summary of the WiFi environment with band distinction."""
-    if 'Band' not in df.columns:
-        df['Band'] = df['Actual Channel'].apply(categorize_channel)
-    
-    # Separate statistics by band
-    band_stats = {}
-    for band in df['Band'].unique():
-        band_data = df[df['Band'] == band]
-        band_stats[band] = {
-            'Total APs': len(band_data['BSS Id'].unique()),
-            'Total Channels': len(band_data['Actual Channel'].unique()),
-            'Average Signal Strength': f"{band_data['Signal strength'].mean():.2f} dBm",
-            'Average SNR': f"{band_data['Signal/noise ratio'].mean():.2f}",
-            'Most Used Channel': band_data['Actual Channel'].mode().iloc[0],
-            'Average Data Rate': f"{band_data['Data Rate'].mean():.2f} Mbps",
-            'Signal Quality Stats': {
-                'Excellent (>-50dBm)': len(band_data[band_data['Signal strength'] > -50]),
-                'Good (-50 to -60dBm)': len(band_data[(band_data['Signal strength'] <= -50) & 
-                                                     (band_data['Signal strength'] > -60)]),
-                'Fair (-60 to -70dBm)': len(band_data[(band_data['Signal strength'] <= -60) & 
-                                                     (band_data['Signal strength'] > -70)]),
-                'Poor (<-70dBm)': len(band_data[band_data['Signal strength'] <= -70])
-            }
-        }
-    
-    # Save as text file with band distinction
-    with open(output_dir / 'enhanced_wifi_summary.txt', 'w') as f:
-        f.write("WiFi Environment Summary by Band\n")
-        f.write("==============================\n\n")
-        
-        for band, stats in band_stats.items():
-            f.write(f"\n{band} Band Statistics:\n")
-            f.write("=" * (len(band) + 15) + "\n")
-            for key, value in stats.items():
-                if isinstance(value, dict):
-                    f.write(f"\n{key}:\n")
-                    for subkey, subvalue in value.items():
-                        f.write(f"  {subkey}: {subvalue}\n")
-                else:
-                    f.write(f"{key}: {value}\n")
-    
-    # Save as CSV with band distinction
-    flat_summary = {}
-    for band, stats in band_stats.items():
-        band_prefix = band.replace(" ", "_")
-        for key, value in stats.items():
-            if isinstance(value, dict):
-                for subkey, subvalue in value.items():
-                    flat_summary[f"{band_prefix}_{key}_{subkey}"] = subvalue
-            else:
-                flat_summary[f"{band_prefix}_{key}"] = value
-    
-    pd.DataFrame([flat_summary]).to_csv(output_dir / 'enhanced_wifi_summary.csv', index=False)
-
 
 def analyze_wifi_density(csv_file):
     """Main function to analyze WiFi network data and generate visualizations."""
@@ -357,7 +302,6 @@ def analyze_wifi_density(csv_file):
     plot_network_coverage(df, density_dir)
     plot_vendor_analysis(df, density_dir)
     plot_network_quality_metrics(df, density_dir)
-    generate_enhanced_summary(df, density_dir)
     
     print(f"Enhanced analysis complete. Results saved in {density_dir}")
 
