@@ -1079,6 +1079,111 @@ def analyze_wifi_diagnostics(df, output_dir):
                 f.write("possible network congestion or protocol overhead, ")
             f.write("which are affecting overall network performance.\n")
 
+def generate_device_performance_summary(df, output_dir):
+    """Generate a text-based summary of device performance."""
+    # Create a copy of the DataFrame
+    df = df.copy()
+    
+    # Group by device (Transmitter address)
+    device_stats = df.groupby('Transmitter address').agg({
+        'Signal strength': ['mean', 'std'],
+        'Signal/noise ratio': ['mean'],
+        'Throughput': ['mean'],
+        'Data Rate': ['mean'],
+        'Retry': ['mean']
+    }).reset_index()
+
+    # Flatten column names
+    device_stats.columns = [
+        f"{col[0]}_{col[1]}" if col[1] else col[0] 
+        for col in device_stats.columns
+    ]
+
+    # Calculate scores and grades
+    for idx, row in device_stats.iterrows():
+        # Signal Quality Score (40%)
+        signal_score = 40 * (min(max(row['Signal strength_mean'], -90), -30) + 90) / 60
+        
+        # SNR Score (30%)
+        snr_score = 30 * min(row['Signal/noise ratio_mean'], 50) / 50
+        
+        # Stability Score (20%)
+        stability_score = 20 * (1 - min(row['Signal strength_std'], 20) / 20)
+        
+        # Retry Score (10%)
+        retry_score = 10 * (1 - min(row['Retry_mean'] * 100, 100) / 100)
+        
+        # Total Score
+        device_stats.loc[idx, 'Connection_Score'] = round(
+            signal_score + snr_score + stability_score + retry_score, 2
+        )
+
+    # Add grades based on scores
+    device_stats['Grade'] = device_stats['Connection_Score'].apply(
+        lambda x: 'A+' if x >= 90 else
+        'A' if x >= 85 else
+        'B+' if x >= 80 else
+        'B' if x >= 75 else
+        'C+' if x >= 70 else
+        'C' if x >= 65 else
+        'D+' if x >= 60 else
+        'D' if x >= 55 else 'F'
+    )
+
+    # Generate the text summary
+    with open(output_dir / 'device_connection_quality.txt', 'w') as f:
+        f.write("Device Connection Quality Summary\n")
+        f.write("===============================\n\n")
+        
+        # Overall network statistics
+        f.write("Network Overview:\n")
+        f.write("-----------------\n")
+        f.write(f"Total Devices: {len(device_stats)}\n")
+        f.write(f"Average Network Score: {device_stats['Connection_Score'].mean():.2f}\n")
+        f.write(f"Network Grade Distribution: {dict(device_stats['Grade'].value_counts())}\n\n")
+        
+        # Device-by-device analysis
+        f.write("Device Analysis:\n")
+        f.write("---------------\n")
+        
+        # Sort devices by connection score
+        device_stats = device_stats.sort_values('Connection_Score', ascending=False)
+        
+        for _, device in device_stats.iterrows():
+            f.write(f"\nDevice: {device['Transmitter address']}\n")
+            f.write(f"Grade: {device['Grade']} (Score: {device['Connection_Score']})\n")
+            f.write("Metrics:\n")
+            f.write(f"  - Signal Strength: {device['Signal strength_mean']:.1f} dBm ")
+            f.write("(Excellent)" if device['Signal strength_mean'] > -50 else 
+                   "(Good)" if device['Signal strength_mean'] > -60 else 
+                   "(Fair)" if device['Signal strength_mean'] > -70 else "(Poor)")
+            f.write(f"\n  - Signal Stability: ±{device['Signal strength_std']:.1f} dB ")
+            f.write("(Stable)" if device['Signal strength_std'] < 5 else 
+                   "(Moderate)" if device['Signal strength_std'] < 10 else "(Unstable)")
+            f.write(f"\n  - SNR: {device['Signal/noise ratio_mean']:.1f} dB ")
+            f.write("(Excellent)" if device['Signal/noise ratio_mean'] > 40 else 
+                   "(Good)" if device['Signal/noise ratio_mean'] > 25 else 
+                   "(Fair)" if device['Signal/noise ratio_mean'] > 15 else "(Poor)")
+            f.write(f"\n  - Average Throughput: {device['Throughput_mean']:.1f} Mbps\n")
+            f.write(f"  - Average Data Rate: {device['Data Rate_mean']:.1f} Mbps\n")
+            f.write(f"  - Retry Rate: {(device['Retry_mean'] * 100):.1f}%\n")
+            f.write("-" * 50 + "\n")
+
+        # Add summary recommendations
+        f.write("\nConnection Quality Summary:\n")
+        f.write("-------------------------\n")
+        excellent_devices = len(device_stats[device_stats['Grade'].isin(['A+', 'A'])])
+        poor_devices = len(device_stats[device_stats['Grade'].isin(['D+', 'D', 'F'])])
+        
+        f.write(f"Excellent Connections (A/A+): {excellent_devices}\n")
+        f.write(f"Poor Connections (D/F): {poor_devices}\n")
+        
+        if poor_devices > 0:
+            f.write("\nDevices Needing Attention:\n")
+            poor_device_list = device_stats[device_stats['Grade'].isin(['D+', 'D', 'F'])]
+            for _, device in poor_device_list.iterrows():
+                f.write(f"- {device['Transmitter address']} (Grade: {device['Grade']})\n")
+
 def analyze_wifi_throughput(csv_file):
     """Main function to analyze WiFi throughput data and generate visualizations."""
     # Create output directories
@@ -1092,7 +1197,7 @@ def analyze_wifi_throughput(csv_file):
     
     # Generate visualizations and summaries
     plot_network_trends(df, throughput_dir)
-    plot_signal_quality(df, throughput_dir)
+    #plot_signal_quality(df, throughput_dir)
     plot_mcs_performance(df, throughput_dir)
     plot_throughput_trends(df, throughput_dir)
     plot_device_analysis(df, throughput_dir)
@@ -1103,10 +1208,13 @@ def analyze_wifi_throughput(csv_file):
     plot_signal_throughput_distribution(df, throughput_dir)
     
     # Generate diagnostics analysis
-    analyze_wifi_diagnostics(df, throughput_dir)
+    #analyze_wifi_diagnostics(df, throughput_dir)
     
-    generate_throughput_summary(df, throughput_dir)
-    generate_detailed_statistics(df, throughput_dir)
+    #generate_throughput_summary(df, throughput_dir)
+    #generate_detailed_statistics(df, throughput_dir)
+    
+    # Add this line to generate the device performance analysis
+    generate_device_performance_summary(df, throughput_dir)
     
     print(f"Throughput analysis complete. Results saved in {throughput_dir}")
 
