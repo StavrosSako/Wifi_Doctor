@@ -73,6 +73,32 @@ def categorize_channel(channel):
     except:
         return 'Unknown'
 
+def plot_ap_count_per_channel(df, output_dir):
+    """Plot the count of unique access points per channel."""
+    plt.figure(figsize=(12, 6))
+    
+    # Count unique BSSIDs per channel
+    channel_counts = df.groupby('Actual Channel')['BSS Id'].nunique()
+    
+    # Create bar plot
+    bars = plt.bar(channel_counts.index, channel_counts.values)
+    
+    # Add value labels on top of bars
+    for bar in bars:
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height,
+                f'{int(height)}',
+                ha='center', va='bottom')
+    
+    plt.title('Unique Access Points per Channel')
+    plt.xlabel('Channel Number')
+    plt.ylabel('Number of Unique Access Points')
+    plt.grid(True, alpha=0.3)
+    
+    # Save plot
+    plt.savefig(output_dir / 'ap_count_per_channel.png', dpi=300, bbox_inches='tight')
+    plt.close()
+
 def plot_signal_strength_distribution(df, output_dir):
     """Plot the distribution of signal strength with KDE."""
     plt.figure(figsize=(12, 6))
@@ -135,8 +161,7 @@ def plot_snr_distribution(df, output_dir):
     plt.savefig(output_dir / 'snr_distribution.png', dpi=300, bbox_inches='tight')
     plt.close()
 
-<<<<<<< HEAD
-=======
+
 
 
 def generate_wifi_density_summary(df, output_dir):
@@ -183,7 +208,6 @@ def generate_wifi_density_summary(df, output_dir):
         for phy_type, count in summary['PHY Type Distribution'].items():
             f.write(f"{phy_type}: {count} APs\n")
 
->>>>>>> 14ff86c (final commit)
 
 def plot_ap_stability(df, output_dir):
     """Analyze and plot AP signal stability over time with band distinction."""
@@ -250,6 +274,36 @@ def plot_network_coverage(df, output_dir):
     plt.savefig(output_dir / 'network_coverage.png', dpi=300, bbox_inches='tight')
     plt.close()
 
+def plot_channel_utilization_patterns(df, output_dir):
+    """Analyze and plot channel utilization patterns."""
+    plt.figure(figsize=(15, 8))
+    gs = gridspec.GridSpec(2, 2)
+    
+    # Channel Usage Over Time
+    ax1 = plt.subplot(gs[0, 0])
+    channel_counts = df['Actual Channel'].value_counts()
+    channel_counts.plot(kind='bar', ax=ax1)
+    ax1.set_title('Channel Usage Distribution')
+    ax1.set_xlabel('Channel')
+    ax1.set_ylabel('Number of Frames')
+    
+    # Channel vs Bandwidth
+    ax2 = plt.subplot(gs[0, 1])
+    sns.scatterplot(data=df, x='Actual Channel', y='Bandwidth', ax=ax2)
+    ax2.set_title('Channel vs Bandwidth')
+    
+    # Channel Interference Analysis
+    ax3 = plt.subplot(gs[1, :])
+    channel_snr = df.groupby('Actual Channel')['Signal/noise ratio'].agg(['mean', 'std']).reset_index()
+    ax3.errorbar(channel_snr['Actual Channel'], channel_snr['mean'], 
+                yerr=channel_snr['std'], fmt='o')
+    ax3.set_title('Channel Quality (SNR) Analysis')
+    ax3.set_xlabel('Channel')
+    ax3.set_ylabel('Signal to Noise Ratio (mean ± std)')
+    
+    plt.tight_layout()
+    plt.savefig(output_dir / 'channel_utilization.png', dpi=300, bbox_inches='tight')
+    plt.close()
 
 
 def plot_network_quality_metrics(df, output_dir):
@@ -304,8 +358,6 @@ def plot_network_quality_metrics(df, output_dir):
     plt.savefig(output_dir / 'network_quality.png', dpi=300, bbox_inches='tight')
     plt.close()
 
-<<<<<<< HEAD
-=======
 def generate_summary(df, output_dir):
     """Generate an enhanced summary of the WiFi environment with band distinction."""
     if 'Band' not in df.columns:
@@ -380,7 +432,6 @@ def plot_time_based_analysis(df, output_dir):
     plt.tight_layout()
     plt.savefig(output_dir / 'time_based_analysis.png', dpi=300, bbox_inches='tight')
     plt.close()
->>>>>>> 14ff86c (final commit)
 
 def analyze_wifi_density(csv_file):
     """Main function to analyze WiFi network data and generate visualizations."""
@@ -391,21 +442,15 @@ def analyze_wifi_density(csv_file):
     df = pd.read_csv(csv_file)
     
     # Generate all visualizations
+    plot_ap_count_per_channel(df, density_dir)
     plot_signal_strength_distribution(df, density_dir)
     plot_snr_distribution(df, density_dir)
-<<<<<<< HEAD
-    plot_ap_stability(df, density_dir)
-    plot_network_coverage(df, density_dir)
-    plot_vendor_analysis(df, density_dir)
-    plot_network_quality_metrics(df, density_dir)
-=======
     generate_wifi_density_summary(df, density_dir)
     plot_ap_stability(df, density_dir)
     plot_network_coverage(df, density_dir)
     plot_network_quality_metrics(df, density_dir)
     plot_time_based_analysis(df, density_dir)
     generate_summary(df, density_dir)
->>>>>>> 14ff86c (final commit)
     
     print(f"Enhanced analysis complete. Results saved in {density_dir}")
 
