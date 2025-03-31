@@ -2,8 +2,8 @@ Device Analysis Summary by Manufacturer
 ===================================
 
 Total Devices: 5
-Most Active Device: be:19: (2325 frames)
-Best Signal Device: 82:f8: (-28.2 dBm)
-Best Data Rate Device: be:19: (816.5 Mbps)
-Average Success Rate: 98.74%
+Most Active Device: be:19: (4082 frames)
+Best Signal Device: 82:f8: (-27.8 dBm)
+Best Data Rate Device: be:19: (820.9 Mbps)
+Average Success Rate: 98.78%
 Dominant PHY Type: 11

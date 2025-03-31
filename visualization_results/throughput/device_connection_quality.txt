@@ -4,53 +4,64 @@ Device Connection Quality Summary
 Network Overview:
 -----------------
 Total Devices: 7
-Average Network Score: 71.74
-Network Grade Distribution: {'F': np.int64(3), 'B': np.int64(2), 'A+': np.int64(2)}
+Average Network Score: 70.87
+Network Grade Distribution: {'F': np.int64(2), 'A+': np.int64(2), 'B+': np.int64(1), 'B': np.int64(1), 'D+': np.int64(1)}
 
 Device Analysis:
 ---------------
 
 Device: 82:f8:6a:22:08:9f
-Grade: A+ (Score: 91.28)
+Grade: A+ (Score: 91.76)
 Metrics:
-  - Signal Strength: -28.2 dBm (Excellent)
-  - Signal Stability: ±8.6 dB (Moderate)
-  - SNR: 57.1 dB (Excellent)
-  - Average Throughput: 686.9 Mbps
-  - Average Data Rate: 703.8 Mbps
-  - Retry Rate: 1.2%
+  - Signal Strength: -27.8 dBm (Excellent)
+  - Signal Stability: ±8.1 dB (Moderate)
+  - SNR: 57.5 dB (Excellent)
+  - Average Throughput: 690.5 Mbps
+  - Average Data Rate: 706.9 Mbps
+  - Retry Rate: 1.1%
 --------------------------------------------------
 
 Device: be:19:e4:1c:ae:a6
-Grade: A+ (Score: 90.0)
+Grade: A+ (Score: 90.55)
 Metrics:
-  - Signal Strength: -34.9 dBm (Excellent)
-  - Signal Stability: ±6.4 dB (Moderate)
-  - SNR: 54.9 dB (Excellent)
-  - Average Throughput: 797.0 Mbps
-  - Average Data Rate: 816.5 Mbps
-  - Retry Rate: 2.8%
+  - Signal Strength: -34.6 dBm (Excellent)
+  - Signal Stability: ±6.1 dB (Moderate)
+  - SNR: 55.9 dB (Excellent)
+  - Average Throughput: 801.9 Mbps
+  - Average Data Rate: 820.9 Mbps
+  - Retry Rate: 2.7%
 --------------------------------------------------
 
 Device: 0c:67:14:92:8c:44
-Grade: B (Score: 79.82)
+Grade: B+ (Score: 80.15)
 Metrics:
-  - Signal Strength: -49.9 dBm (Excellent)
+  - Signal Strength: -50.0 dBm (Excellent)
   - Signal Stability: ±0.9 dB (Stable)
-  - SNR: 40.4 dB (Excellent)
-  - Average Throughput: 763.4 Mbps
-  - Average Data Rate: 782.1 Mbps
+  - SNR: 41.0 dB (Excellent)
+  - Average Throughput: 772.2 Mbps
+  - Average Data Rate: 790.5 Mbps
   - Retry Rate: 2.3%
 --------------------------------------------------
 
 Device: 1a:16:df:8c:27:56
-Grade: B (Score: 76.09)
+Grade: B (Score: 77.37)
 Metrics:
-  - Signal Strength: -50.2 dBm (Good)
-  - Signal Stability: ±2.3 dB (Stable)
-  - SNR: 36.5 dB (Good)
-  - Average Throughput: 73.5 Mbps
-  - Average Data Rate: 75.3 Mbps
+  - Signal Strength: -49.7 dBm (Excellent)
+  - Signal Stability: ±2.4 dB (Stable)
+  - SNR: 38.1 dB (Good)
+  - Average Throughput: 63.6 Mbps
+  - Average Data Rate: 65.1 Mbps
+  - Retry Rate: 0.0%
+--------------------------------------------------
+
+Device: c0:9f:51:69:83:55
+Grade: D+ (Score: 62.87)
+Metrics:
+  - Signal Strength: -65.0 dBm (Fair)
+  - Signal Stability: ±0.0 dB (Stable)
+  - SNR: 27.0 dB (Good)
+  - Average Throughput: 5.9 Mbps
+  - Average Data Rate: 6.0 Mbps
   - Retry Rate: 0.0%
 --------------------------------------------------
 
@@ -66,22 +77,11 @@ Metrics:
 --------------------------------------------------
 
 Device: 70:97:41:89:7a:20
-Grade: F (Score: 38.36)
+Grade: F (Score: 38.49)
 Metrics:
   - Signal Strength: -84.5 dBm (Poor)
-  - Signal Stability: ±0.7 dB (Stable)
+  - Signal Stability: ±0.6 dB (Stable)
   - SNR: 9.0 dB (Poor)
-  - Average Throughput: 5.9 Mbps
-  - Average Data Rate: 6.0 Mbps
-  - Retry Rate: 0.0%
---------------------------------------------------
-
-Device: c0:9f:51:69:83:55
-Grade: F (Score: nan)
-Metrics:
-  - Signal Strength: -65.0 dBm (Fair)
-  - Signal Stability: ±nan dB (Unstable)
-  - SNR: 27.0 dB (Good)
   - Average Throughput: 5.9 Mbps
   - Average Data Rate: 6.0 Mbps
   - Retry Rate: 0.0%
@@ -93,6 +93,6 @@ Excellent Connections (A/A+): 2
 Poor Connections (D/F): 3
 
 Devices Needing Attention:
+- c0:9f:51:69:83:55 (Grade: D+)
 - c0:d7:aa:32:21:a4 (Grade: F)
 - 70:97:41:89:7a:20 (Grade: F)
-- c0:9f:51:69:83:55 (Grade: F)
