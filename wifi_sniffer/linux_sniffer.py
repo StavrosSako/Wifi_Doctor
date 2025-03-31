@@ -45,8 +45,12 @@ def disable_monitor_mode(monitor_interface):
 def capture_packets(interface, output_filename, packet_count=1000):
     try:
         output_path = os.path.join("/tmp", output_filename)
-        with open(output_path, 'wb') as f:
-            pass
+
+        # Check if file exists and delete it
+        if os.path.exists(output_path):
+            print(f"[-] File {output_path} already exists. Deleting...")
+            os.remove(output_path)
+
         command = [
             "tshark",
             "-i", interface,
@@ -60,6 +64,7 @@ def capture_packets(interface, output_filename, packet_count=1000):
         print(f"[-] Error during capture: {e}")
     except Exception as e:
         print(f"[-] An error occurred: {e}")
+
 
 def prompt_for_capture(label):
     print(f"\n=== Starting capture for {label} ===")
