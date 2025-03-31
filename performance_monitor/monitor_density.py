@@ -73,32 +73,6 @@ def categorize_channel(channel):
     except:
         return 'Unknown'
 
-def plot_ap_count_per_channel(df, output_dir):
-    """Plot the count of unique access points per channel."""
-    plt.figure(figsize=(12, 6))
-    
-    # Count unique BSSIDs per channel
-    channel_counts = df.groupby('Actual Channel')['BSS Id'].nunique()
-    
-    # Create bar plot
-    bars = plt.bar(channel_counts.index, channel_counts.values)
-    
-    # Add value labels on top of bars
-    for bar in bars:
-        height = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2., height,
-                f'{int(height)}',
-                ha='center', va='bottom')
-    
-    plt.title('Unique Access Points per Channel')
-    plt.xlabel('Channel Number')
-    plt.ylabel('Number of Unique Access Points')
-    plt.grid(True, alpha=0.3)
-    
-    # Save plot
-    plt.savefig(output_dir / 'ap_count_per_channel.png', dpi=300, bbox_inches='tight')
-    plt.close()
-
 def plot_signal_strength_distribution(df, output_dir):
     """Plot the distribution of signal strength with KDE."""
     plt.figure(figsize=(12, 6))
@@ -161,165 +135,6 @@ def plot_snr_distribution(df, output_dir):
     plt.savefig(output_dir / 'snr_distribution.png', dpi=300, bbox_inches='tight')
     plt.close()
 
-def plot_phy_type_distribution(df, output_dir):
-    """Plot the distribution of PHY types."""
-    plt.figure(figsize=(10, 6))
-    
-    # Map PHY types and count unique BSSIDs per PHY type
-    df['PHY Type'] = df['PHY type'].apply(map_phy_type)
-    phy_counts = df.groupby('PHY Type')['BSS Id'].nunique()
-    
-    # Create pie chart with custom colors
-    colors = ['#1f77b4', '#4292c6', '#6baed6', '#9ecae1', '#c6dbef']
-    plt.pie(phy_counts.values, labels=phy_counts.index, autopct='%1.1f%%',
-            colors=colors[:len(phy_counts)])
-    
-    plt.title('PHY Type Distribution (Unique APs)')
-    
-    # Save plot
-    plt.savefig(output_dir / 'phy_type_distribution.png', dpi=300, bbox_inches='tight')
-    plt.close()
-
-def plot_channel_analysis(df, output_dir):
-    """Create comprehensive channel analysis plots."""
-    fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 12))
-    fig.suptitle('Channel Analysis', fontsize=16)
-    
-    # Set color for all plots
-    color = '#1f77b4'  # Steel blue
-    
-    # 1. Channel vs Signal Strength
-    sns.violinplot(data=df, x='Actual Channel', y='Signal strength', ax=ax1, inner='box', color=color)
-    ax1.set_title('Signal Strength by Channel')
-    ax1.set_xlabel('Channel')
-    ax1.set_ylabel('Signal Strength (dBm)')
-    
-    # 2. Channel vs SNR
-    sns.violinplot(data=df, x='Actual Channel', y='Signal/noise ratio', ax=ax2, inner='box', color=color)
-    ax2.set_title('SNR by Channel')
-    ax2.set_xlabel('Channel')
-    ax2.set_ylabel('SNR (dB)')
-    
-    # 3. Channel vs PHY Type
-    df['PHY Type'] = df['PHY type'].apply(map_phy_type)
-    phy_channel = pd.crosstab(df['Actual Channel'], df['PHY Type'])
-    phy_channel.plot(kind='bar', stacked=True, ax=ax3, colormap='Blues')
-    ax3.set_title('PHY Type Distribution by Channel')
-    ax3.set_xlabel('Channel')
-    ax3.set_ylabel('Count')
-    
-    # 4. Channel Bandwidth Distribution
-    sns.histplot(data=df, x='Bandwidth', bins=20, ax=ax4, color=color)
-    ax4.set_title('Channel Bandwidth Distribution')
-    ax4.set_xlabel('Bandwidth (MHz)')
-    ax4.set_ylabel('Count')
-    
-    plt.tight_layout()
-    plt.savefig(output_dir / 'channel_analysis.png', dpi=300, bbox_inches='tight')
-    plt.close()
-
-def generate_wifi_density_summary(df, output_dir):
-    """Generate a summary table of WiFi density statistics."""
-    # Map PHY types
-    df['PHY Type'] = df['PHY type'].apply(map_phy_type)
-    
-    # Count unique BSSIDs per channel
-    channel_counts = df.groupby('Actual Channel')['BSS Id'].nunique()
-    
-    # Count unique BSSIDs per PHY type
-    phy_counts = df.groupby('PHY Type')['BSS Id'].nunique()
-    
-    summary = {
-        'Total APs': len(df['BSS Id'].unique()),
-        'Total Channels': len(df['Actual Channel'].unique()),
-        'Average RSSI': df['Signal strength'].mean(),
-        'Average SNR': df['Signal/noise ratio'].mean(),
-        'Most Common Channel': channel_counts.idxmax(),
-        'Most Common PHY Type': phy_counts.idxmax(),
-        'Channel Distribution': channel_counts.to_dict(),
-        'PHY Type Distribution': phy_counts.to_dict()
-    }
-    
-    # Save summary to CSV
-    pd.DataFrame([summary]).to_csv(output_dir / 'wifi_density_summary.csv', index=False)
-    
-    # Save summary to text file
-    with open(output_dir / 'wifi_density_summary.txt', 'w') as f:
-        f.write("WiFi Network Analysis Summary\n")
-        f.write("==========================\n\n")
-        f.write(f"Total Access Points: {summary['Total APs']}\n")
-        f.write(f"Total Channels Used: {summary['Total Channels']}\n")
-        f.write(f"Average Signal Strength (RSSI): {summary['Average RSSI']:.1f} dBm\n")
-        f.write(f"Average Signal-to-Noise Ratio (SNR): {summary['Average SNR']:.1f} dB\n")
-        f.write(f"Most Common Channel: {summary['Most Common Channel']}\n")
-        f.write(f"Most Common PHY Type: {summary['Most Common PHY Type']}\n\n")
-        
-        f.write("Channel Distribution (Unique APs):\n")
-        for channel, count in summary['Channel Distribution'].items():
-            f.write(f"Channel {channel}: {count} APs\n")
-        
-        f.write("\nPHY Type Distribution (Unique APs):\n")
-        for phy_type, count in summary['PHY Type Distribution'].items():
-            f.write(f"{phy_type}: {count} APs\n")
-
-def plot_channel_distribution(df, output_dir):
-    """Plot channel distribution with band distinction."""
-    plt.figure(figsize=(12, 6))
-    
-    # Add band category
-    df['Band'] = df['Actual Channel'].apply(categorize_channel)
-    
-    # Create subplots for each band
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
-    
-    # 2.4 GHz Plot
-    data_24 = df[df['Band'] == '2.4 GHz']
-    if not data_24.empty:
-        sns.histplot(data=data_24, x='Actual Channel', ax=ax1, 
-                    bins=13, color='blue', alpha=0.6)
-        ax1.set_title('2.4 GHz Channel Distribution')
-        ax1.set_xlabel('Channel Number')
-        ax1.set_ylabel('Number of Frames')
-        ax1.grid(True, alpha=0.3)
-    
-    # 5 GHz Plot
-    data_5 = df[df['Band'] == '5 GHz']
-    if not data_5.empty:
-        sns.histplot(data=data_5, x='Actual Channel', ax=ax2,
-                    bins=min(len(data_5['Actual Channel'].unique()), 20),
-                    color='green', alpha=0.6)
-        ax2.set_title('5 GHz Channel Distribution')
-        ax2.set_xlabel('Channel Number')
-        ax2.set_ylabel('Number of Frames')
-        ax2.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(output_dir / 'channel_distribution.png', dpi=300, bbox_inches='tight')
-    plt.close()
-
-def plot_signal_distribution(df, output_dir):
-    """Plot signal distribution with band distinction."""
-    plt.figure(figsize=(15, 6))
-    
-    # Add band category if not already present
-    if 'Band' not in df.columns:
-        df['Band'] = df['Actual Channel'].apply(categorize_channel)
-    
-    # Create violin plots for signal strength by band
-    plt.subplot(1, 2, 1)
-    sns.violinplot(data=df, x='Band', y='Signal strength')
-    plt.title('Signal Strength Distribution by Band')
-    plt.grid(True, alpha=0.3)
-    
-    # Create violin plots for SNR by band
-    plt.subplot(1, 2, 2)
-    sns.violinplot(data=df, x='Band', y='Signal/noise ratio')
-    plt.title('SNR Distribution by Band')
-    plt.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(output_dir / 'signal_distribution_by_band.png', dpi=300, bbox_inches='tight')
-    plt.close()
 
 def plot_ap_stability(df, output_dir):
     """Analyze and plot AP signal stability over time with band distinction."""
@@ -386,36 +201,6 @@ def plot_network_coverage(df, output_dir):
     plt.savefig(output_dir / 'network_coverage.png', dpi=300, bbox_inches='tight')
     plt.close()
 
-def plot_channel_utilization_patterns(df, output_dir):
-    """Analyze and plot channel utilization patterns."""
-    plt.figure(figsize=(15, 8))
-    gs = gridspec.GridSpec(2, 2)
-    
-    # Channel Usage Over Time
-    ax1 = plt.subplot(gs[0, 0])
-    channel_counts = df['Actual Channel'].value_counts()
-    channel_counts.plot(kind='bar', ax=ax1)
-    ax1.set_title('Channel Usage Distribution')
-    ax1.set_xlabel('Channel')
-    ax1.set_ylabel('Number of Frames')
-    
-    # Channel vs Bandwidth
-    ax2 = plt.subplot(gs[0, 1])
-    sns.scatterplot(data=df, x='Actual Channel', y='Bandwidth', ax=ax2)
-    ax2.set_title('Channel vs Bandwidth')
-    
-    # Channel Interference Analysis
-    ax3 = plt.subplot(gs[1, :])
-    channel_snr = df.groupby('Actual Channel')['Signal/noise ratio'].agg(['mean', 'std']).reset_index()
-    ax3.errorbar(channel_snr['Actual Channel'], channel_snr['mean'], 
-                yerr=channel_snr['std'], fmt='o')
-    ax3.set_title('Channel Quality (SNR) Analysis')
-    ax3.set_xlabel('Channel')
-    ax3.set_ylabel('Signal to Noise Ratio (mean ± std)')
-    
-    plt.tight_layout()
-    plt.savefig(output_dir / 'channel_utilization.png', dpi=300, bbox_inches='tight')
-    plt.close()
 
 def plot_vendor_analysis(df, output_dir):
     """Analyze and plot vendor-specific patterns."""
@@ -556,67 +341,6 @@ def generate_enhanced_summary(df, output_dir):
     
     pd.DataFrame([flat_summary]).to_csv(output_dir / 'enhanced_wifi_summary.csv', index=False)
 
-def plot_time_based_analysis(df, output_dir):
-    """Analyze and plot time-based patterns in the network."""
-    plt.figure(figsize=(12, 6))
-    
-    # Signal Strength Over Time
-    df['Sample Index'] = range(len(df))  # Use row index as time proxy
-    for bss_id in df['BSS Id'].unique()[:8]:  # Plot top 8 APs
-        ap_data = df[df['BSS Id'] == bss_id]
-        plt.plot(ap_data['Sample Index'], ap_data['Signal strength'], label=bss_id, alpha=0.7)
-    
-    plt.title('Signal Strength Over Time (Top 8 APs)')
-    plt.xlabel('Sample Number')
-    plt.ylabel('Signal Strength (dBm)')
-    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-    plt.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(output_dir / 'time_based_analysis.png', dpi=300, bbox_inches='tight')
-    plt.close()
-
-def plot_interference_analysis(df, output_dir):
-    """Analyze and plot potential interference patterns."""
-    plt.figure(figsize=(15, 10))
-    gs = gridspec.GridSpec(2, 2)
-    
-    # 1. Channel Overlap
-    ax1 = plt.subplot(gs[0, 0])
-    channel_aps = df.groupby('Actual Channel')['BSS Id'].nunique()
-    channel_aps.plot(kind='bar', ax=ax1)
-    ax1.set_title('Number of APs per Channel')
-    ax1.set_xlabel('Channel')
-    ax1.set_ylabel('Number of APs')
-    ax1.grid(True, alpha=0.3)
-    
-    # 2. Signal Strength Distribution by Channel
-    ax2 = plt.subplot(gs[0, 1])
-    sns.violinplot(data=df, x='Actual Channel', y='Signal strength', ax=ax2)
-    ax2.set_title('Signal Strength Distribution by Channel')
-    ax2.set_xlabel('Channel')
-    ax2.set_ylabel('Signal Strength (dBm)')
-    ax2.grid(True, alpha=0.3)
-    
-    # 3. SNR by Channel
-    ax3 = plt.subplot(gs[1, 0])
-    sns.violinplot(data=df, x='Actual Channel', y='Signal/noise ratio', ax=ax3)
-    ax3.set_title('SNR Distribution by Channel')
-    ax3.set_xlabel('Channel')
-    ax3.set_ylabel('SNR (dB)')
-    ax3.grid(True, alpha=0.3)
-    
-    # 4. Channel Bandwidth Distribution
-    ax4 = plt.subplot(gs[1, 1])
-    sns.histplot(data=df, x='Bandwidth', bins=20, ax=ax4)
-    ax4.set_title('Channel Bandwidth Distribution')
-    ax4.set_xlabel('Bandwidth (MHz)')
-    ax4.set_ylabel('Count')
-    ax4.grid(True, alpha=0.3)
-    
-    plt.tight_layout()
-    plt.savefig(output_dir / 'interference_analysis.png', dpi=300, bbox_inches='tight')
-    plt.close()
 
 def analyze_wifi_density(csv_file):
     """Main function to analyze WiFi network data and generate visualizations."""
@@ -627,21 +351,12 @@ def analyze_wifi_density(csv_file):
     df = pd.read_csv(csv_file)
     
     # Generate all visualizations
-    plot_ap_count_per_channel(df, density_dir)
     plot_signal_strength_distribution(df, density_dir)
     plot_snr_distribution(df, density_dir)
-    plot_phy_type_distribution(df, density_dir)
-    plot_channel_analysis(df, density_dir)
-    generate_wifi_density_summary(df, density_dir)
-    plot_channel_distribution(df, density_dir)
-    plot_signal_distribution(df, density_dir)
     plot_ap_stability(df, density_dir)
     plot_network_coverage(df, density_dir)
-    plot_channel_utilization_patterns(df, density_dir)
     plot_vendor_analysis(df, density_dir)
     plot_network_quality_metrics(df, density_dir)
-    plot_time_based_analysis(df, density_dir)
-    plot_interference_analysis(df, density_dir)
     generate_enhanced_summary(df, density_dir)
     
     print(f"Enhanced analysis complete. Results saved in {density_dir}")
