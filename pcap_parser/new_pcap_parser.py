@@ -8,47 +8,6 @@ from datetime import datetime
 import pyshark
 from tqdm import tqdm
 
-def freq_to_channel(freq):
-    """Convert frequency to channel number."""
-    if 2412 <= freq <= 2484:  # 2.4 GHz
-        if freq == 2484:
-            return 14
-        return (freq - 2412) // 5 + 1
-    elif 5170 <= freq <= 5825:  # 5 GHz
-        return (freq - 5170) // 5 + 34
-    return None
-
-def generate_freq_to_channel_map():
-    """Generate a mapping of frequencies to channels for both 2.4GHz and 5GHz bands."""
-    freq_to_channel = {}
-    
-    # 2.4 GHz channels (1-14)
-    for channel in range(1, 15):
-        freq = 2407 + (channel * 5)
-        freq_to_channel[freq] = channel
-    
-    # 5 GHz channels
-    # UNII-1 (36-48)
-    for channel in range(36, 49, 4):
-        freq = 5000 + (channel * 5)
-        freq_to_channel[freq] = channel
-    
-    # UNII-2 (52-64)
-    for channel in range(52, 65, 4):
-        freq = 5000 + (channel * 5)
-        freq_to_channel[freq] = channel
-    
-    # UNII-2 Extended (100-144)
-    for channel in range(100, 145, 4):
-        freq = 5000 + (channel * 5)
-        freq_to_channel[freq] = channel
-    
-    # UNII-3 (149-165)
-    for channel in range(149, 166, 4):
-        freq = 5000 + (channel * 5)
-        freq_to_channel[freq] = channel
-    
-    return freq_to_channel
 
 def extract_data_rate(data_rate):
     """Extract data rate from string."""
@@ -64,37 +23,6 @@ def extract_data_rate(data_rate):
             return float(match.group(1))
         return 'N/A'
 
-def extract_signal_strength(signal_str):
-    """Extract numeric signal strength from string."""
-    if not signal_str or signal_str == 'N/A':
-        return None
-    try:
-        # Extract numeric value from signal string (e.g., "-65 dBm" -> -65)
-        match = re.search(r'(-?\d+)', signal_str)
-        if match:
-            return float(match.group(1))
-        return None
-    except:
-        return None
-
-def extract_noise_level(noise_str):
-    """Extract numeric noise level from string."""
-    if not noise_str or noise_str == 'N/A':
-        return None
-    try:
-        # Extract numeric value from noise string (e.g., "-92 dBm" -> -92)
-        match = re.search(r'(-?\d+)', noise_str)
-        if match:
-            return float(match.group(1))
-        return None
-    except:
-        return None
-
-def calculate_snr(signal, noise):
-    """Calculate Signal-to-Noise Ratio."""
-    if signal is None or noise is None:
-        return None
-    return signal - noise
 
 def extract_packet_info(packet, debug=False):
     try:
