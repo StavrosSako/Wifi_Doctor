@@ -1,0 +1,18 @@
+WiFi Environment Summary by Band
+==============================
+
+
+5 GHz Band Statistics:
+====================
+Total APs: 6
+Total Channels: 1
+Average Signal Strength: -70.19 dBm
+Average SNR: 20.77
+Most Used Channel: 36
+Average Data Rate: 6.00 Mbps
+
+Signal Quality Stats:
+  Excellent (>-50dBm): 0
+  Good (-50 to -60dBm): 305
+  Fair (-60 to -70dBm): 299
+  Poor (<-70dBm): 460

@@ -335,6 +335,12 @@ def parse_pcap_file(file_path, output_file, limit=None, debug=False, mode='densi
             'Actual Channel', 'Retry'
         ]
         df = df[columns]
+        valid_range = (df['Signal strength'].astype(float) < 0) & (df['Signal strength'].astype(float) > -100)
+        df = df[valid_range].copy()
+        df['Signal/noise ratio'] = pd.to_numeric(df['Signal/noise ratio'], errors='coerce')
+        df = df[df['Signal/noise ratio'].notna() & (df['Signal/noise ratio'] >= 0) & (df['Signal/noise ratio'] <= 60)]
+
+        
         
         # Check if output file exists
         if os.path.exists(output_file):
